@@ -6,7 +6,8 @@ output: github_document
 ---
 
 ## TWCF 1.1 Cue Tex Det Analysis
-• [AUC](#AUC)
+C1 p(saw shape or figure | figure present) v A p(correct discrimination)  
+• [AUC](#AUC)  
 • [alphaA](#alphaA)
 
 ```{r setup, include=FALSE}
