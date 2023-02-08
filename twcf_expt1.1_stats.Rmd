@@ -7,9 +7,9 @@ output: github_document
 
 ## TWCF 1.1 Cue Tex Det Analysis
 • [AUC](#AUC)
+• [alphaA](#alphaA)
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 
 #### packages #### 
 suppressPackageStartupMessages(library(tidyverse))
@@ -17,8 +17,8 @@ library(ez)
 library(foreach)
 library(kableExtra)
 library(ggplot2)
-library(dplyr)
 library(Rmisc)
+library(dplyr)
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -32,6 +32,10 @@ analysisName = "main_expt_BU_C1_group";
 #### load data ####
 dataName <- sprintf("%s/data/%s.csv",wd,analysisName)
 data <- read_csv(dataName)
+
+#### Change to categorical vars ####
+data$att <- as.factor(data$att)
+data$subjectID <- as.factor(data$subjectID)
 ```
 
 ### AUC
@@ -45,14 +49,37 @@ m_anova = ezANOVA(
 )
 knitr::kable(m_anova)
 
-dse = summarySE(d, measurevar="AUC", groupvars=c("att"))
-ggplot(dse, aes(x=att, y=AUC)) + 
+d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(AUC),sd=sd(AUC))
+knitr::kable(d)
+
+dse = summarySE(data, measurevar="AUC", groupvars=c("att"))
+invisible(dse)
+ggplot(dse, aes(x=att, y=AUC, fill=att)) + 
     geom_bar(position=position_dodge(), stat="identity") +
     geom_errorbar(aes(ymin=AUC-se, ymax=AUC+se),
                   width=.2,                    # Width of the error bars
-                  position=position_dodge(.9))
-
-d <- data %>% group_by(att) %>% summarise(mean=mean(AUC),sd=sd(AUC))
-knitr::kable(d)
+                  position=position_dodge(.9)) 
 ```
 
+### alphaA
+```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE}
+d <- data
+m_anova = ezANOVA(
+  data=d,
+  dv.(alphaA),
+  wid=.(subjectID),
+  within.(att)
+)
+knitr::kable(m_anova)
+
+d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(alphaA),sd=sd(alphaA))
+knitr::kable(d)
+
+dse = summarySE(data, measurevar="alphaA", groupvars=c("att"))
+invisible(dse)
+ggplot(dse, aes(x=att, y=alphaA, fill=att)) + 
+    geom_bar(position=position_dodge(), stat="identity") +
+    geom_errorbar(aes(ymin=alphaA-se, ymax=alphaA+se),
+                  width=.2,                    # Width of the error bars
+                  position=position_dodge(.9)) 
+```
