@@ -1,0 +1,58 @@
+---
+title: "twcf_expt1_stats_BU"
+author: "Karen Tian"
+date: "2023-02-07"
+output: github_document
+---
+
+## TWCF 1.1 Cue Tex Det Analysis
+• [AUC](#AUC)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#### packages #### 
+suppressPackageStartupMessages(library(tidyverse))
+library(ez)
+library(foreach)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(Rmisc)
+knitr::opts_chunk$set(echo = TRUE)
+
+#### set path #### 
+wd  <- getwd()
+
+#### anova setup #### 
+options(contrasts=c("contr.sum","contr.poly"))
+
+analysisName = "main_expt_BU_C1_group";
+
+#### load data ####
+dataName <- sprintf("%s/data/%s.csv",wd,analysisName)
+data <- read_csv(dataName)
+```
+
+### AUC
+```{r AUC, echo=FALSE, message=FALSE, warning=FALSE}
+d <- data
+m_anova = ezANOVA(
+  data=d,
+  dv.(AUC),
+  wid=.(subjectID),
+  within.(att)
+)
+knitr::kable(m_anova)
+
+dse = summarySE(d, measurevar="AUC", groupvars=c("att"))
+ggplot(dse, aes(x=att, y=AUC)) + 
+    geom_bar(position=position_dodge(), stat="identity") +
+    geom_errorbar(aes(ymin=AUC-se, ymax=AUC+se),
+                  width=.2,                    # Width of the error bars
+                  position=position_dodge(.9))
+
+d <- data %>% group_by(att) %>% summarise(mean=mean(AUC),sd=sd(AUC))
+knitr::kable(d)
+```
+
