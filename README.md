@@ -8,7 +8,7 @@ Karen Tian
 
 C1 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
-• [AUC](#aucc1)
+• [AUC](#auc-of-c1va)
 
 C3 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
@@ -351,7 +351,7 @@ att
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/alphaa-1.png" style="display: block; margin: auto auto auto 0;" />
 
-### AUC of C1 v A
+### AUC of C1vA
 
 <table class="kable_wrapper">
 
@@ -683,4 +683,4 @@ att
 
     ## [1] FALSE
 
-<img src="twcf_expt1.1_stats_files/figure-gfm/aucc1-1.png" style="display: block; margin: auto auto auto 0;" />
+<img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C1-1.png" style="display: block; margin: auto auto auto 0;" />
