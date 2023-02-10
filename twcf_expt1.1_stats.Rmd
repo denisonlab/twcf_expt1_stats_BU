@@ -75,7 +75,7 @@ d <- data_C1 %>% group_by(att) %>%
 
 p <- ggbarplot(data_C1, x="att", y="alphaA", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
 scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
-ylab("AUC") + guides(color="none", fill="none") + 
+ylab("fitted alpha of A(x)") + guides(color="none", fill="none") + 
   stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.3,0.26,0.2)) + stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.38)
 
 ggpar(p, ylim = c(0, 0.4))
