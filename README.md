@@ -15,6 +15,342 @@ discrimination)
 •
 [AUC](#AUC_C3)
 
+### alphaA
+
+<table class="kable_wrapper">
+
+<tbody>
+
+<tr>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+DFn
+
+</th>
+
+<th style="text-align:right;">
+
+DFd
+
+</th>
+
+<th style="text-align:right;">
+
+F
+
+</th>
+
+<th style="text-align:right;">
+
+p
+
+</th>
+
+<th style="text-align:left;">
+
+p\<.05
+
+</th>
+
+<th style="text-align:right;">
+
+ges
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:right;">
+
+28
+
+</td>
+
+<td style="text-align:right;">
+
+9.082251
+
+</td>
+
+<td style="text-align:right;">
+
+0.0009118
+
+</td>
+
+<td style="text-align:left;">
+
+  - 
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.1706006
+    
+    </td>
+    
+    </tr>
+    
+    </tbody>
+    
+    </table>
+
+</td>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+W
+
+</th>
+
+<th style="text-align:right;">
+
+p
+
+</th>
+
+<th style="text-align:left;">
+
+p\<.05
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+0.053937
+
+</td>
+
+<td style="text-align:right;">
+
+0
+
+</td>
+
+<td style="text-align:left;">
+
+  - 
+    
+    </td>
+    
+    </tr>
+    
+    </tbody>
+    
+    </table>
+
+</td>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+GGe
+
+</th>
+
+<th style="text-align:right;">
+
+p\[GG\]
+
+</th>
+
+<th style="text-align:left;">
+
+p\[GG\]\<.05
+
+</th>
+
+<th style="text-align:right;">
+
+HFe
+
+</th>
+
+<th style="text-align:right;">
+
+p\[HF\]
+
+</th>
+
+<th style="text-align:left;">
+
+p\[HF\]\<.05
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+0.513858
+
+</td>
+
+<td style="text-align:right;">
+
+0.0087095
+
+</td>
+
+<td style="text-align:left;">
+
+  - 
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.5170924
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0085781
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+      - 
+        
+        </td>
+        
+        </tr>
+        
+        </tbody>
+        
+        </table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+    ## [1] FALSE
+
+<img src="twcf_expt1.1_stats_files/figure-gfm/alphaA-1.png" style="display: block; margin: auto auto auto 0;" />
+
 ### AUC of C1 v A
 
 <table class="kable_wrapper">
@@ -348,5 +684,3 @@ att
     ## [1] FALSE
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C1-1.png" style="display: block; margin: auto auto auto 0;" />
-
-### alphaA

@@ -56,6 +56,32 @@ significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
 ```
 
+### alphaA
+```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+d <- data_C1
+m_anova = ezANOVA(
+  data = data_C1,
+  dv = .(alphaA),
+  wid = .(subjectID),
+  within = .(att)
+)
+knitr::kable(m_anova)
+
+d <- data_C1 %>% group_by(att) %>% 
+  summarize(
+    mean = mean(alphaA),
+    sd = sd(alphaA),
+    se = sd(alphaA)/sqrt(length(alphaA)))
+
+p <- ggbarplot(data_C1, x="att", y="alphaA", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("AUC") + guides(color="none", fill="none") + 
+  stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.3,0.26,0.2)) + stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.38)
+
+ggpar(p, ylim = c(0, 0.4))
+
+```
+
 ### AUC of C1 v A 
 ```{r AUC_C1, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C1
@@ -91,18 +117,4 @@ stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
 # label="p.signif"
 ```
 
-### alphaA
-```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE}
-# d <- data
-# m_anova = ezANOVA(
-#   data = d,
-#   dv = .(alphaA),
-#   wid = .(subjectID),
-#   within = .(att)
-# )
-# knitr::kable(m_anova)
-# 
-# d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(alphaA),sd=sd(alphaA))
-# knitr::kable(d)
 
-```
