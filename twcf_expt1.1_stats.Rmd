@@ -1,14 +1,18 @@
 ---
-title: "twcf_expt1_stats_BU"
+title: "TWCF Expt 1 Stats BU"
 author: "Karen Tian"
-date: "2023-02-07"
 output: github_document
 ---
 
-## TWCF 1.1 Cue Tex Det Analysis
-C1 p(saw shape or figure | figure present) v A p(correct discrimination)  
-• [AUC](#AUC)  
-• [alphaA](#alphaA)
+## TWCF 1.1 Cue Tex Det Analysis  
+• [alphaA](#alphaA)  
+
+C1 p(responded saw shape or figure | figure present) v A p(correct discrimination)  
+• [AUC](#AUC_C1)    
+
+C3 p(responded saw shape or figure | figure present) v A p(correct discrimination)  
+• [AUC](#AUC_C3)    
+
 
 ```{r setup, include=FALSE}
 
@@ -18,8 +22,8 @@ library(ez)
 library(foreach)
 library(kableExtra)
 library(ggplot2)
-library(Rmisc)
 library(dplyr)
+library(ggpubr)
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -28,59 +32,77 @@ wd  <- getwd()
 #### anova setup #### 
 options(contrasts=c("contr.sum","contr.poly"))
 
-analysisName = "main_expt_BU_C1_group";
+#### load C1 data #### 
+analysisName_C1 = "main_expt_BU_C1_group";
+dataName_C1 <- sprintf("%s/data/%s.csv",wd,analysisName_C1)
+data_C1 <- read_csv(dataName_C1)
 
-#### load data ####
-dataName <- sprintf("%s/data/%s.csv",wd,analysisName)
-data <- read_csv(dataName)
+#### load C3 data #### 
+analysisName_C3 = "main_expt_BU_C3_group";
+dataName_C3 <- sprintf("%s/data/%s.csv",wd,analysisName_C3)
+data_C3 <- read_csv(dataName_C3)
 
 #### Change to categorical vars ####
-data$att <- as.factor(data$att)
-data$subjectID <- as.factor(data$subjectID)
+data_C1$att <- as.factor(data_C1$att)
+data_C1$subjectID <- as.factor(data_C1$subjectID)
+data_C3$att <- as.factor(data_C3$att)
+data_C3$subjectID <- as.factor(data_C3$subjectID)
+
+### Plotting setup #### 
+colors = c("#F8A299","#CCCCCC","#98E6A1")
+attComparison <- list( c("-1","1"), c("-1","0"), c("0","1") )
+
+significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
+symbols = c("****", "***", "**", "*", "ns"))
 ```
 
-### AUC
-```{r AUC, echo=FALSE, message=FALSE, warning=FALSE}
-d <- data
+### AUC of C1 v A 
+```{r AUC_C1, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+d <- data_C1
 m_anova = ezANOVA(
-  data=d,
-  dv.(AUC),
-  wid=.(subjectID),
-  within.(att)
+  data = data_C1,
+  dv = .(AUC),
+  wid = .(subjectID),
+  within = .(att),
 )
 knitr::kable(m_anova)
 
-d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(AUC),sd=sd(AUC))
-knitr::kable(d)
+d <- data_C1 %>% group_by(att) %>% 
+  summarize(
+    mean = mean(AUC),
+    sd = sd(AUC),
+    se = sd(AUC)/sqrt(length(AUC)))
 
-dse = summarySE(data, measurevar="AUC", groupvars=c("att"))
-invisible(dse)
-ggplot(dse, aes(x=att, y=AUC, fill=att)) + 
-    geom_bar(position=position_dodge(), stat="identity") +
-    geom_errorbar(aes(ymin=AUC-se, ymax=AUC+se),
-                  width=.2,                    # Width of the error bars
-                  position=position_dodge(.9)) 
+# ggplot(d, aes(x = att, y = mean, fill=att)) +
+#   geom_col(position = position_dodge(0)) +
+#   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width= 0.2, position=position_dodge(.9)) +
+#   scale_fill_manual(values=colors) +
+# scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) +
+# ylab("AUC") +
+# stat_compare_means(comparisons=attComparison, label.y = c(0.5, 0.4,0.3)) +
+# stat_compare_means(label.y =1)
+
+ggbarplot(data_C1, x="att", y="AUC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("AUC") + guides(color="none", fill="none") + 
+stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.35, 0.3,0.25)) + 
+stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
+
+# label="p.signif"
 ```
 
 ### alphaA
 ```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE}
-d <- data
-m_anova = ezANOVA(
-  data=d,
-  dv.(alphaA),
-  wid=.(subjectID),
-  within.(att)
-)
-knitr::kable(m_anova)
+# d <- data
+# m_anova = ezANOVA(
+#   data = d,
+#   dv = .(alphaA),
+#   wid = .(subjectID),
+#   within = .(att)
+# )
+# knitr::kable(m_anova)
+# 
+# d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(alphaA),sd=sd(alphaA))
+# knitr::kable(d)
 
-d <- data %>% dplyr::group_by(att) %>% dplyr::summarise(mean=mean(alphaA),sd=sd(alphaA))
-knitr::kable(d)
-
-dse = summarySE(data, measurevar="alphaA", groupvars=c("att"))
-invisible(dse)
-ggplot(dse, aes(x=att, y=alphaA, fill=att)) + 
-    geom_bar(position=position_dodge(), stat="identity") +
-    geom_errorbar(aes(ymin=alphaA-se, ymax=alphaA+se),
-                  width=.2,                    # Width of the error bars
-                  position=position_dodge(.9)) 
 ```
