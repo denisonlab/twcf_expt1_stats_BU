@@ -4,16 +4,16 @@ Karen Tian
 
 ## TWCF 1.1 Cue Tex Det Analysis
 
-• [alphaA](#alphaA)
+• [alphaA](#alphaa)
 
 C1 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
-• [AUC](#AUC_C1)
+• [AUC](#auc_c1)
 
 C3 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
 •
-[AUC](#AUC_C3)
+[AUC](#auc_c3)
 
 ### alphaA
 
