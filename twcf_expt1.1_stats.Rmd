@@ -57,7 +57,7 @@ symbols = c("****", "***", "**", "*", "ns"))
 ```
 
 ### alphaA
-```{r alphaa, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C1
 m_anova = ezANOVA(
   data = data_C1,

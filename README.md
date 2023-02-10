@@ -349,7 +349,7 @@ att
 
     ## [1] FALSE
 
-<img src="twcf_expt1.1_stats_files/figure-gfm/alphaa-1.png" style="display: block; margin: auto auto auto 0;" />
+<img src="twcf_expt1.1_stats_files/figure-gfm/alphaA-1.png" style="display: block; margin: auto auto auto 0;" />
 
 ### AUC of C1vA
 
