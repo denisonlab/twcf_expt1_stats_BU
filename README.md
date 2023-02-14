@@ -9,13 +9,13 @@ Karen Tian
 C1 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
 • [AUC](#auc-of-c1va)  
-• [alpha](#fitted-alpha-of-C1\(x\))
+• \[alpha\](\#fitted-alpha-of-C1
 
 C3 p(responded saw shape or figure | figure present) v A p(correct
 discrimination)  
 • [AUC](#auc-of-c3va)  
 •
-[alpha](#fitted-alpha-of-C3\(x\))
+\[alpha\](\#fitted-alpha-of-C3
 
 ### alphaA
 
@@ -687,7 +687,7 @@ att
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C1-1.png" style="display: block; margin: auto auto auto 0;" />
 
-### fitted alpha of C1(x)
+### fitted alpha of C1
 
 <table class="kable_wrapper">
 
@@ -1353,7 +1353,7 @@ att
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C3-1.png" style="display: block; margin: auto auto auto 0;" />
 
-### fitted alpha of C3(x)
+### fitted alpha of C3
 
 <table class="kable_wrapper">
 
