@@ -8,14 +8,15 @@ output: github_document
 • [alphaA](#alphaa)  
 
 C1 p(responded saw shape or figure | figure present) v A p(correct discrimination)  
-• [AUC](#auc-of-c1va)    
+• [AUC](#auc-of-c1va)  
+• [alpha](#fitted-alpha-of-C1(x))
 
 C3 p(responded saw shape or figure | figure present) v A p(correct discrimination)  
-• [AUC](#aucc3)    
+• [AUC](#auc-of-c3va)    
+• [alpha](#fitted-alpha-of-C3(x))  
 
 
 ```{r setup, include=FALSE}
-
 #### packages #### 
 suppressPackageStartupMessages(library(tidyverse))
 library(ez)
@@ -79,7 +80,6 @@ ylab("fitted alpha of A") + guides(color="none", fill="none") +
   stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.3,0.26,0.2)) + stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.38)
 
 ggpar(p, ylim = c(0, 0.4))
-
 ```
 
 ### AUC of C1vA
@@ -117,4 +117,76 @@ stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
 # label="p.signif"
 ```
 
+### fitted alpha of C1(x)
+```{r alphaC1, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+d <- data_C1
+m_anova = ezANOVA(
+  data = data_C1,
+  dv = .(alphaC),
+  wid = .(subjectID),
+  within = .(att)
+)
+knitr::kable(m_anova)
 
+d <- data_C1 %>% group_by(att) %>% 
+  summarize(
+    mean = mean(alphaC),
+    sd = sd(alphaC),
+    se = sd(alphaC)/sqrt(length(alphaC)))
+
+p <- ggbarplot(data_C1, x="att", y="alphaC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("fitted alpha of C1(x)") + guides(color="none", fill="none") + 
+  stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.3,0.26,0.2)) + stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.38)
+
+ggpar(p, ylim = c(0, 0.4))
+```
+
+### AUC of C3vA
+```{r AUC_C3, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+d <- data_C3
+m_anova = ezANOVA(
+  data = data_C3,
+  dv = .(AUC),
+  wid = .(subjectID),
+  within = .(att),
+)
+knitr::kable(m_anova)
+
+d <- data_C3 %>% group_by(att) %>% 
+  summarize(
+    mean = mean(AUC),
+    sd = sd(AUC),
+    se = sd(AUC)/sqrt(length(AUC)))
+
+ggbarplot(data_C3, x="att", y="AUC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("AUC") + guides(color="none", fill="none") + 
+stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.35, 0.3,0.25)) + 
+stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
+```
+
+### fitted alpha of C3(x)
+```{r alphaC3, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+d <- data_C3
+m_anova = ezANOVA(
+  data = data_C3,
+  dv = .(alphaC),
+  wid = .(subjectID),
+  within = .(att)
+)
+knitr::kable(m_anova)
+
+d <- data_C3 %>% group_by(att) %>% 
+  summarize(
+    mean = mean(alphaC),
+    sd = sd(alphaC),
+    se = sd(alphaC)/sqrt(length(alphaC)))
+
+p <- ggbarplot(data_C3, x="att", y="alphaC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("fitted alpha of C3(x)") + guides(color="none", fill="none") + 
+  stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.43,0.33,0.22)) + stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.6)
+
+ggpar(p, ylim = c(0, 0.65))
+```
