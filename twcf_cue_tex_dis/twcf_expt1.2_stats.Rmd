@@ -8,7 +8,8 @@ output: github_document
 • [alphaA](#alphaa)  
 
 C p(ref stronger) v A p(correct discrimination)  
-• [AUC](#auc-of-c1va)  
+• [AUC](#auc-of-cva)  
+• [Relative AUC](#relative-auc-of-cva)  
 • [alpha](#fitted-alpha-of-C1)
 
 
@@ -101,8 +102,43 @@ d <- data %>% group_by(att) %>%
 ggbarplot(data, x="att", y="AUC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
 scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
 ylab("AUC") + guides(color="none", fill="none") + 
-stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.35, 0.3,0.25)) + 
-stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
+stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.13, 0.10, 0.06)) + 
+stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.18)
+
+# label="p.signif"
+```
+
+### Relative AUC of CvA
+```{r relAUC_C, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
+m_anova = ezANOVA(
+  data = data,
+  dv = .(relAUC),
+  wid = .(subjectID),
+  within = .(att),
+  between = .(site)
+)
+knitr::kable(m_anova)
+
+d <- data %>% group_by(att) %>% 
+  summarize(
+    mean = mean(relAUC),
+    sd = sd(relAUC),
+    se = sd(relAUC)/sqrt(length(relAUC)))
+
+# ggplot(d, aes(x = att, y = mean, fill=att)) +
+#   geom_col(position = position_dodge(0)) +
+#   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width= 0.2, position=position_dodge(.9)) +
+#   scale_fill_manual(values=colors) +
+# scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) +
+# ylab("AUC") +
+# stat_compare_means(comparisons=attComparison, label.y = c(0.5, 0.4,0.3)) +
+# stat_compare_means(label.y =1)
+
+ggbarplot(data, x="att", y="relAUC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
+scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
+ylab("AUC") + guides(color="none", fill="none") + 
+stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.50, 0.41, 0.3)) + 
+stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.60)
 
 # label="p.signif"
 ```

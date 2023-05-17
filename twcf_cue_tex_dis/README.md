@@ -7,7 +7,8 @@ Karen Tian
 • [alphaA](#alphaa)
 
 C p(ref stronger) v A p(correct discrimination)  
-• [AUC](#auc-of-c1va)  
+• [AUC](#auc-of-cva)  
+• [Relative AUC](#relative-auc-of-cva)  
 •
 [alpha](#fitted-alpha-of-C1)
 
@@ -1036,6 +1037,520 @@ att
     ## [1] FALSE
 
 <img src="twcf_expt1.2_stats_files/figure-gfm/AUC_C-1.png" style="display: block; margin: auto auto auto 0;" />
+
+### Relative AUC of CvA
+
+<table class="kable_wrapper">
+
+<tbody>
+
+<tr>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+DFn
+
+</th>
+
+<th style="text-align:right;">
+
+DFd
+
+</th>
+
+<th style="text-align:right;">
+
+F
+
+</th>
+
+<th style="text-align:right;">
+
+p
+
+</th>
+
+<th style="text-align:left;">
+
+p\<.05
+
+</th>
+
+<th style="text-align:right;">
+
+ges
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+2
+
+</td>
+
+<td style="text-align:left;">
+
+site
+
+</td>
+
+<td style="text-align:right;">
+
+1
+
+</td>
+
+<td style="text-align:right;">
+
+27
+
+</td>
+
+<td style="text-align:right;">
+
+2.6003164
+
+</td>
+
+<td style="text-align:right;">
+
+0.1184715
+
+</td>
+
+<td style="text-align:left;">
+
+</td>
+
+<td style="text-align:right;">
+
+0.0640426
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+3
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+2
+
+</td>
+
+<td style="text-align:right;">
+
+54
+
+</td>
+
+<td style="text-align:right;">
+
+54.2070773
+
+</td>
+
+<td style="text-align:right;">
+
+0.0000000
+
+</td>
+
+<td style="text-align:left;">
+
+  - 
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.3675954
+    
+    </td>
+    
+    </tr>
+    
+    <tr>
+    
+    <td style="text-align:left;">
+    
+    4
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+    site:att
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    2
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    54
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.7828445
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.4622219
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0083246
+    
+    </td>
+    
+    </tr>
+    
+    </tbody>
+    
+    </table>
+
+</td>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+W
+
+</th>
+
+<th style="text-align:right;">
+
+p
+
+</th>
+
+<th style="text-align:left;">
+
+p\<.05
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+3
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+0.9078128
+
+</td>
+
+<td style="text-align:right;">
+
+0.2844145
+
+</td>
+
+<td style="text-align:left;">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+4
+
+</td>
+
+<td style="text-align:left;">
+
+site:att
+
+</td>
+
+<td style="text-align:right;">
+
+0.9078128
+
+</td>
+
+<td style="text-align:right;">
+
+0.2844145
+
+</td>
+
+<td style="text-align:left;">
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+<td>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+</th>
+
+<th style="text-align:left;">
+
+Effect
+
+</th>
+
+<th style="text-align:right;">
+
+GGe
+
+</th>
+
+<th style="text-align:right;">
+
+p\[GG\]
+
+</th>
+
+<th style="text-align:left;">
+
+p\[GG\]\<.05
+
+</th>
+
+<th style="text-align:right;">
+
+HFe
+
+</th>
+
+<th style="text-align:right;">
+
+p\[HF\]
+
+</th>
+
+<th style="text-align:left;">
+
+p\[HF\]\<.05
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+3
+
+</td>
+
+<td style="text-align:left;">
+
+att
+
+</td>
+
+<td style="text-align:right;">
+
+0.9155939
+
+</td>
+
+<td style="text-align:right;">
+
+0.0000000
+
+</td>
+
+<td style="text-align:left;">
+
+  - 
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.9788555
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0000000
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+      - 
+        
+        </td>
+        
+        </tr>
+        
+        <tr>
+        
+        <td style="text-align:left;">
+        
+        4
+        
+        </td>
+        
+        <td style="text-align:left;">
+        
+        site:att
+        
+        </td>
+        
+        <td style="text-align:right;">
+        
+        0.9155939
+        
+        </td>
+        
+        <td style="text-align:right;">
+        
+        0.4524361
+        
+        </td>
+        
+        <td style="text-align:left;">
+        
+        </td>
+        
+        <td style="text-align:right;">
+        
+        0.9788555
+        
+        </td>
+        
+        <td style="text-align:right;">
+        
+        0.4598535
+        
+        </td>
+        
+        <td style="text-align:left;">
+        
+        </td>
+        
+        </tr>
+        
+        </tbody>
+        
+        </table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+    ## [1] FALSE
+
+<img src="twcf_expt1.2_stats_files/figure-gfm/relAUC_C-1.png" style="display: block; margin: auto auto auto 0;" />
 
 ### fitted alpha of C
 
