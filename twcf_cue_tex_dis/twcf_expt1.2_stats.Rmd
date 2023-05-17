@@ -125,18 +125,9 @@ d <- data %>% group_by(att) %>%
     sd = sd(relAUC),
     se = sd(relAUC)/sqrt(length(relAUC)))
 
-# ggplot(d, aes(x = att, y = mean, fill=att)) +
-#   geom_col(position = position_dodge(0)) +
-#   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width= 0.2, position=position_dodge(.9)) +
-#   scale_fill_manual(values=colors) +
-# scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) +
-# ylab("AUC") +
-# stat_compare_means(comparisons=attComparison, label.y = c(0.5, 0.4,0.3)) +
-# stat_compare_means(label.y =1)
-
 ggbarplot(data, x="att", y="relAUC", add=c("mean_se"), size=0.7, color="att", fill="att", palette=colors) + 
 scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) + 
-ylab("AUC") + guides(color="none", fill="none") + 
+ylab("Relative AUC") + guides(color="none", fill="none") + 
 stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.50, 0.41, 0.3)) + 
 stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.60)
 
