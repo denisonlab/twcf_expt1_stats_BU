@@ -55,7 +55,8 @@ m_anova = ezANOVA(
   dv = .(alphaA),
   wid = .(subjectID),
   within = .(att),
-  between = .(site)
+  between = .(site),
+  detailed = TRUE,
 )
 knitr::kable(m_anova)
 

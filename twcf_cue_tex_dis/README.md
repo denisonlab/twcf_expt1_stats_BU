@@ -30,10 +30,6 @@ C p(ref stronger) v A p(correct discrimination)
 
 <th style="text-align:left;">
 
-</th>
-
-<th style="text-align:left;">
-
 Effect
 
 </th>
@@ -47,6 +43,18 @@ DFn
 <th style="text-align:right;">
 
 DFd
+
+</th>
+
+<th style="text-align:right;">
+
+SSn
+
+</th>
+
+<th style="text-align:right;">
+
+SSd
 
 </th>
 
@@ -84,13 +92,7 @@ ges
 
 <td style="text-align:left;">
 
-2
-
-</td>
-
-<td style="text-align:left;">
-
-site
+(Intercept)
 
 </td>
 
@@ -108,131 +110,213 @@ site
 
 <td style="text-align:right;">
 
-0.9283012
+29.4933342
 
 </td>
 
 <td style="text-align:right;">
 
-0.3438553
+74.83654
+
+</td>
+
+<td style="text-align:right;">
+
+10.6407909
+
+</td>
+
+<td style="text-align:right;">
+
+0.0029945
 
 </td>
 
 <td style="text-align:left;">
 
-</td>
-
-<td style="text-align:right;">
-
-0.0113180
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-3
-
-</td>
-
-<td style="text-align:left;">
-
-att
-
-</td>
-
-<td style="text-align:right;">
-
-2
-
-</td>
-
-<td style="text-align:right;">
-
-54
-
-</td>
-
-<td style="text-align:right;">
-
-0.9845902
-
-</td>
-
-<td style="text-align:right;">
-
-0.3801981
-
-</td>
-
-<td style="text-align:left;">
-
-</td>
-
-<td style="text-align:right;">
-
-0.0237469
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-4
-
-</td>
-
-<td style="text-align:left;">
-
-site:att
-
-</td>
-
-<td style="text-align:right;">
-
-2
-
-</td>
-
-<td style="text-align:right;">
-
-54
-
-</td>
-
-<td style="text-align:right;">
-
-0.9380318
-
-</td>
-
-<td style="text-align:right;">
-
-0.3976810
-
-</td>
-
-<td style="text-align:left;">
-
-</td>
-
-<td style="text-align:right;">
-
-0.0226495
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
+  - 
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.1492168
+    
+    </td>
+    
+    </tr>
+    
+    <tr>
+    
+    <td style="text-align:left;">
+    
+    site
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    1
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    27
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.6623209
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    74.83654
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.2389563
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.6289082
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0039232
+    
+    </td>
+    
+    </tr>
+    
+    <tr>
+    
+    <td style="text-align:left;">
+    
+    att
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    2
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    54
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    10.8182937
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    93.32435
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    3.1298789
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0517478
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0604444
+    
+    </td>
+    
+    </tr>
+    
+    <tr>
+    
+    <td style="text-align:left;">
+    
+    site:att
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    2
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    54
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    2.1089219
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    93.32435
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.6101397
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.5469773
+    
+    </td>
+    
+    <td style="text-align:left;">
+    
+    </td>
+    
+    <td style="text-align:right;">
+    
+    0.0123858
+    
+    </td>
+    
+    </tr>
+    
+    </tbody>
+    
+    </table>
 
 </td>
 
@@ -294,7 +378,7 @@ att
 
 <td style="text-align:right;">
 
-0.0003821
+0.0178007
 
 </td>
 
@@ -328,7 +412,7 @@ att
     
     <td style="text-align:right;">
     
-    0.0003821
+    0.0178007
     
     </td>
     
@@ -428,13 +512,13 @@ att
 
 <td style="text-align:right;">
 
-0.5000955
+0.5044901
 
 </td>
 
 <td style="text-align:right;">
 
-0.3298935
+0.0877712
 
 </td>
 
@@ -444,13 +528,13 @@ att
 
 <td style="text-align:right;">
 
-0.5001066
+0.50501
 
 </td>
 
 <td style="text-align:right;">
 
-0.3298952
+0.0877255
 
 </td>
 
@@ -476,13 +560,13 @@ site:att
 
 <td style="text-align:right;">
 
-0.5000955
+0.5044901
 
 </td>
 
 <td style="text-align:right;">
 
-0.3413977
+0.4428683
 
 </td>
 
@@ -492,13 +576,13 @@ site:att
 
 <td style="text-align:right;">
 
-0.5001066
+0.50501
 
 </td>
 
 <td style="text-align:right;">
 
-0.3413997
+0.4430225
 
 </td>
 
@@ -620,13 +704,13 @@ site
 
 <td style="text-align:right;">
 
-0.5376783
+0.352942
 
 </td>
 
 <td style="text-align:right;">
 
-0.4697157
+0.5573979
 
 </td>
 
@@ -636,7 +720,7 @@ site
 
 <td style="text-align:right;">
 
-0.0112825
+0.0079234
 
 </td>
 
@@ -670,7 +754,7 @@ att
 
 <td style="text-align:right;">
 
-43.6277036
+40.141679
 
 </td>
 
@@ -688,7 +772,7 @@ att
     
     <td style="text-align:right;">
     
-    0.4082556
+    0.3664336
     
     </td>
     
@@ -722,13 +806,13 @@ att
     
     <td style="text-align:right;">
     
-    0.9803801
+    1.080368
     
     </td>
     
     <td style="text-align:right;">
     
-    0.3817457
+    0.3466940
     
     </td>
     
@@ -738,7 +822,7 @@ att
     
     <td style="text-align:right;">
     
-    0.0152668
+    0.0153275
     
     </td>
     
@@ -808,13 +892,13 @@ att
 
 <td style="text-align:right;">
 
-0.8996062
+0.861946
 
 </td>
 
 <td style="text-align:right;">
 
-0.2527447
+0.1449576
 
 </td>
 
@@ -840,13 +924,13 @@ site:att
 
 <td style="text-align:right;">
 
-0.8996062
+0.861946
 
 </td>
 
 <td style="text-align:right;">
 
-0.2527447
+0.1449576
 
 </td>
 
@@ -938,7 +1022,7 @@ att
 
 <td style="text-align:right;">
 
-0.9087656
+0.878693
 
 </td>
 
@@ -956,7 +1040,7 @@ att
     
     <td style="text-align:right;">
     
-    0.9707323
+    0.9350618
     
     </td>
     
@@ -990,13 +1074,13 @@ att
         
         <td style="text-align:right;">
         
-        0.9087656
+        0.878693
         
         </td>
         
         <td style="text-align:right;">
         
-        0.3754076
+        0.3406116
         
         </td>
         
@@ -1006,13 +1090,13 @@ att
         
         <td style="text-align:right;">
         
-        0.9707323
+        0.9350618
         
         </td>
         
         <td style="text-align:right;">
         
-        0.3798013
+        0.3436049
         
         </td>
         
@@ -1134,13 +1218,13 @@ site
 
 <td style="text-align:right;">
 
-2.6003164
+2.9355107
 
 </td>
 
 <td style="text-align:right;">
 
-0.1184715
+0.0981127
 
 </td>
 
@@ -1150,7 +1234,7 @@ site
 
 <td style="text-align:right;">
 
-0.0640426
+0.0735556
 
 </td>
 
@@ -1184,7 +1268,7 @@ att
 
 <td style="text-align:right;">
 
-54.2070773
+54.6297378
 
 </td>
 
@@ -1202,7 +1286,7 @@ att
     
     <td style="text-align:right;">
     
-    0.3675954
+    0.3530750
     
     </td>
     
@@ -1236,13 +1320,13 @@ att
     
     <td style="text-align:right;">
     
-    0.7828445
+    0.7806647
     
     </td>
     
     <td style="text-align:right;">
     
-    0.4622219
+    0.4632021
     
     </td>
     
@@ -1252,7 +1336,7 @@ att
     
     <td style="text-align:right;">
     
-    0.0083246
+    0.0077388
     
     </td>
     
@@ -1322,13 +1406,13 @@ att
 
 <td style="text-align:right;">
 
-0.9078128
+0.867242
 
 </td>
 
 <td style="text-align:right;">
 
-0.2844145
+0.1569726
 
 </td>
 
@@ -1354,13 +1438,13 @@ site:att
 
 <td style="text-align:right;">
 
-0.9078128
+0.867242
 
 </td>
 
 <td style="text-align:right;">
 
-0.2844145
+0.1569726
 
 </td>
 
@@ -1452,7 +1536,7 @@ att
 
 <td style="text-align:right;">
 
-0.9155939
+0.8828011
 
 </td>
 
@@ -1470,7 +1554,7 @@ att
     
     <td style="text-align:right;">
     
-    0.9788555
+    0.9399246
     
     </td>
     
@@ -1504,13 +1588,13 @@ att
         
         <td style="text-align:right;">
         
-        0.9155939
+        0.8828011
         
         </td>
         
         <td style="text-align:right;">
         
-        0.4524361
+        0.4492921
         
         </td>
         
@@ -1520,13 +1604,13 @@ att
         
         <td style="text-align:right;">
         
-        0.9788555
+        0.9399246
         
         </td>
         
         <td style="text-align:right;">
         
-        0.4598535
+        0.4562976
         
         </td>
         
@@ -1648,13 +1732,13 @@ att
 
 <td style="text-align:right;">
 
-0.599084
+0.725062
 
 </td>
 
 <td style="text-align:right;">
 
-0.5527967
+0.4887847
 
 </td>
 
@@ -1664,7 +1748,7 @@ att
 
 <td style="text-align:right;">
 
-0.0137911
+0.0157375
 
 </td>
 
@@ -1734,7 +1818,7 @@ att
 
 <td style="text-align:right;">
 
-0.0919831
+0.1273749
 
 </td>
 
@@ -1834,13 +1918,13 @@ att
 
 <td style="text-align:right;">
 
-0.5241044
+0.5340097
 
 </td>
 
 <td style="text-align:right;">
 
-0.4525877
+0.4100035
 
 </td>
 
@@ -1850,13 +1934,13 @@ att
 
 <td style="text-align:right;">
 
-0.5268306
+0.537884
 
 </td>
 
 <td style="text-align:right;">
 
-0.4533793
+0.4109141
 
 </td>
 
