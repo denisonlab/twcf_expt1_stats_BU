@@ -1463,6 +1463,8 @@ sem
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C1-1.png" style="display: block; margin: auto auto auto 0;" />
 
+    ## [1] "cohen's d = 0.966403"
+
 ### fitted alpha of C1
 
 <table class="kable_wrapper">
@@ -2904,6 +2906,8 @@ sem
     ## [1] FALSE
 
 <img src="twcf_expt1.1_stats_files/figure-gfm/AUC_C2-1.png" style="display: block; margin: auto auto auto 0;" />
+
+    ## [1] "cohen's d = 0.547548"
 
 ### fitted alpha of C2
 
