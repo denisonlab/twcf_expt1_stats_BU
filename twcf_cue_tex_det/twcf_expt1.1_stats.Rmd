@@ -25,6 +25,7 @@ library(kableExtra)
 library(ggplot2)
 library(dplyr)
 library(ggpubr)
+library(lsr)
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -111,6 +112,19 @@ ylab("AUC") + guides(color="none", fill="none") +
 stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.35, 0.3,0.25)) + 
 stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
 
+# Cohen's d w small sample size correction (<50)
+# small effect ~0.2
+# medium effect ~0.5
+# large effect ~0.8 
+d_attI <- data_C1 %>% filter(att==-1)
+d_attV <- data_C1 %>% filter(att==1)
+cd = cohensD(
+  d_attI$AUC,
+  d_attV$AUC,
+  method = "paired"
+  )
+sprintf("cohen's d = %f", cd)
+
 # label="p.signif"
 ```
 
@@ -167,6 +181,15 @@ scale_x_discrete(name = "Attention",labels=c("Invalid","Neutral","Valid")) +
 ylab("AUC") + guides(color="none", fill="none") + 
 stat_compare_means(paired=TRUE, comparisons=attComparison, label.y = c(0.35, 0.3,0.25)) + 
 stat_anova_test(method="one_way_repeated",wid="subjectID",label.y = 0.4)
+
+d_attI <- data_C2 %>% filter(att==-1)
+d_attV <- data_C2 %>% filter(att==1)
+cd = cohensD(
+  d_attI$AUC,
+  d_attV$AUC,
+  method = "paired"
+  )
+sprintf("cohen's d = %f", cd)
 ```
 
 ### fitted alpha of C2
