@@ -4,17 +4,17 @@ author: "Karen Tian"
 output: github_document
 ---
 
-## TWCF 1.1 Cue Gab Det Analysis
+## TWCF 1.1 Cue Gab Det Analysis  
+• [alphaA](#alphaa)  
 
-• [alphaA](#alphaa)
-
-C1 p(saw grating \| grating present) v A p(correct discrimination)\
-• [AUC](#auc-of-c1va)\
+C1 p(saw grating | grating present) v A p(correct discrimination)  
+• [AUC](#auc-of-c1va)  
 • [alpha](#fitted-alpha-of-C1)
 
-C2 p(saw orientation \| grating present) v A p(correct discrimination)\
-• [AUC](#auc-ofc2va)\
-• [alpha](#fitted-alpha-of-C2)
+C2 p(saw orientation | grating present) v A p(correct discrimination)  
+• [AUC](#auc-ofc2va)    
+• [alpha](#fitted-alpha-of-C2)  
+
 
 ```{r setup, include=FALSE}
 #### packages #### 
@@ -63,8 +63,7 @@ symbols = c("****", "***", "**", "*", "ns"))
 site <- 1; # 2 
 ```
 
-### alphaA {#alphaa}
-
+### alphaA
 ```{r alphaA, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C1
 if (site ==1) {
@@ -105,8 +104,7 @@ ylab("fitted alpha of A") + guides(color="none", fill="none") +
 ggpar(p, ylim = c(0, 0.4))
 ```
 
-### AUC of C1vA {#auc-of-c1va}
-
+### AUC of C1vA
 ```{r AUC_C1, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C1
 if (site ==1) {
@@ -160,8 +158,7 @@ sprintf("cohen's d = %f", cd)
 # label="p.signif"
 ```
 
-### fitted alpha of C1 {#fitted-alpha-of-c1}
-
+### fitted alpha of C1
 ```{r alphaC1, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C1
 if (site ==1) {
@@ -202,7 +199,6 @@ ggpar(p, ylim = c(0, 0.4))
 ```
 
 ### AUC of C2vA
-
 ```{r AUC_C2, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C2
 if (site ==1) {
@@ -250,8 +246,7 @@ cd = cohensD(
 sprintf("cohen's d = %f", cd)
 ```
 
-### fitted alpha of C2 {#fitted-alpha-of-c2}
-
+### fitted alpha of C2
 ```{r alphaC2, echo=FALSE, message=FALSE, warning=FALSE, fig.align="left", fig.width=4, fig.height=3.2}
 d <- data_C2
 if (site ==1) {
