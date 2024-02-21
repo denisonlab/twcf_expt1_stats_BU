@@ -14,13 +14,6 @@ m_anova = ezANOVA(
   between = .(site,expt),
   detailed = TRUE,
   )
-```
-
-    ## Warning: The column supplied as the wid variable contains non-unique values
-    ## across levels of the supplied between-Ss variables. Automatically fixing this
-    ## by generating unique wid labels.
-
-``` r
 knitr::kable(m_anova)
 ```
 
