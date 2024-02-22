@@ -1,4 +1,4 @@
-TWCF FOHO BigANOVA2
+TWCF FOHO BigANOVAs
 ================
 Karen Tian
 2024-02-21
@@ -67,16 +67,16 @@ ges
 1
 </td>
 <td style="text-align:right;">
-174
+84
 </td>
 <td style="text-align:right;">
-16.6453981
+8.3226990
 </td>
 <td style="text-align:right;">
-4.8243944
+2.2001829
 </td>
 <td style="text-align:right;">
-600.344631
+317.7493583
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -85,7 +85,7 @@ ges
 
 - </td>
   <td style="text-align:right;">
-  0.7109911
+  0.7278910
   </td>
   </tr>
   <tr>
@@ -99,24 +99,24 @@ ges
   1
   </td>
   <td style="text-align:right;">
-  174
+  84
   </td>
   <td style="text-align:right;">
-  0.0000000
+  0.0491329
   </td>
   <td style="text-align:right;">
-  4.8243944
+  2.2001829
   </td>
   <td style="text-align:right;">
-  0.000000
+  1.8758258
   </td>
   <td style="text-align:right;">
-  1.0000000
+  0.1744597
   </td>
   <td style="text-align:left;">
   </td>
   <td style="text-align:right;">
-  0.0000000
+  0.0155463
   </td>
   </tr>
   <tr>
@@ -130,25 +130,25 @@ ges
   2
   </td>
   <td style="text-align:right;">
-  174
+  84
   </td>
   <td style="text-align:right;">
-  0.9273399
+  0.4636700
   </td>
   <td style="text-align:right;">
-  4.8243944
+  2.2001829
   </td>
   <td style="text-align:right;">
-  16.723047
+  8.8511450
   </td>
   <td style="text-align:right;">
-  0.0000002
+  0.0003250
   </td>
   <td style="text-align:left;">
 
   - </td>
     <td style="text-align:right;">
-    0.1205357
+    0.1296993
     </td>
     </tr>
     <tr>
@@ -162,16 +162,16 @@ ges
     2
     </td>
     <td style="text-align:right;">
-    348
+    168
     </td>
     <td style="text-align:right;">
-    0.2799216
+    0.1399608
     </td>
     <td style="text-align:right;">
-    0.6910326
+    0.3261065
     </td>
     <td style="text-align:right;">
-    70.483438
+    36.0517345
     </td>
     <td style="text-align:right;">
     0.0000000
@@ -180,7 +180,7 @@ ges
 
     - </td>
       <td style="text-align:right;">
-      0.0397274
+      0.0430483
       </td>
       </tr>
       <tr>
@@ -194,25 +194,25 @@ ges
       1
       </td>
       <td style="text-align:right;">
-      174
+      84
       </td>
       <td style="text-align:right;">
-      0.1236145
+      0.0618073
       </td>
       <td style="text-align:right;">
-      1.0544427
+      0.4910878
       </td>
       <td style="text-align:right;">
-      20.398386
+      10.5720619
       </td>
       <td style="text-align:right;">
-      0.0000116
+      0.0016534
       </td>
       <td style="text-align:left;">
 
       - </td>
         <td style="text-align:right;">
-        0.0179418
+        0.0194785
         </td>
         </tr>
         <tr>
@@ -226,87 +226,87 @@ ges
         2
         </td>
         <td style="text-align:right;">
-        174
+        84
         </td>
         <td style="text-align:right;">
-        0.0000000
+        0.1628814
         </td>
         <td style="text-align:right;">
-        4.8243944
+        2.2001829
         </td>
         <td style="text-align:right;">
-        0.000000
+        3.1092952
         </td>
         <td style="text-align:right;">
-        1.0000000
-        </td>
-        <td style="text-align:left;">
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        </tr>
-        <tr>
-        <td style="text-align:left;">
-        6
-        </td>
-        <td style="text-align:left;">
-        site:att
-        </td>
-        <td style="text-align:right;">
-        2
-        </td>
-        <td style="text-align:right;">
-        348
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        <td style="text-align:right;">
-        0.6910326
-        </td>
-        <td style="text-align:right;">
-        0.000000
-        </td>
-        <td style="text-align:right;">
-        1.0000000
-        </td>
-        <td style="text-align:left;">
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        </tr>
-        <tr>
-        <td style="text-align:left;">
-        7
-        </td>
-        <td style="text-align:left;">
-        expt:att
-        </td>
-        <td style="text-align:right;">
-        4
-        </td>
-        <td style="text-align:right;">
-        348
-        </td>
-        <td style="text-align:right;">
-        0.0253498
-        </td>
-        <td style="text-align:right;">
-        0.6910326
-        </td>
-        <td style="text-align:right;">
-        3.191507
-        </td>
-        <td style="text-align:right;">
-        0.0135603
+        0.0498077
         </td>
         <td style="text-align:left;">
 
         - </td>
           <td style="text-align:right;">
-          0.0037326
+          0.0497473
+          </td>
+          </tr>
+          <tr>
+          <td style="text-align:left;">
+          6
+          </td>
+          <td style="text-align:left;">
+          site:att
+          </td>
+          <td style="text-align:right;">
+          2
+          </td>
+          <td style="text-align:right;">
+          168
+          </td>
+          <td style="text-align:right;">
+          0.0017033
+          </td>
+          <td style="text-align:right;">
+          0.3261065
+          </td>
+          <td style="text-align:right;">
+          0.4387360
+          </td>
+          <td style="text-align:right;">
+          0.6455877
+          </td>
+          <td style="text-align:left;">
+          </td>
+          <td style="text-align:right;">
+          0.0005471
+          </td>
+          </tr>
+          <tr>
+          <td style="text-align:left;">
+          7
+          </td>
+          <td style="text-align:left;">
+          expt:att
+          </td>
+          <td style="text-align:right;">
+          4
+          </td>
+          <td style="text-align:right;">
+          168
+          </td>
+          <td style="text-align:right;">
+          0.0126749
+          </td>
+          <td style="text-align:right;">
+          0.3261065
+          </td>
+          <td style="text-align:right;">
+          1.6324313
+          </td>
+          <td style="text-align:right;">
+          0.1683583
+          </td>
+          <td style="text-align:left;">
+          </td>
+          <td style="text-align:right;">
+          0.0040573
           </td>
           </tr>
           <tr>
@@ -320,24 +320,24 @@ ges
           1
           </td>
           <td style="text-align:right;">
-          174
+          84
           </td>
           <td style="text-align:right;">
-          0.0000000
+          0.0007230
           </td>
           <td style="text-align:right;">
-          1.0544427
+          0.4910878
           </td>
           <td style="text-align:right;">
-          0.000000
+          0.1236642
           </td>
           <td style="text-align:right;">
-          1.0000000
+          0.7259744
           </td>
           <td style="text-align:left;">
           </td>
           <td style="text-align:right;">
-          0.0000000
+          0.0002323
           </td>
           </tr>
           <tr>
@@ -351,16 +351,16 @@ ges
           2
           </td>
           <td style="text-align:right;">
-          174
+          84
           </td>
           <td style="text-align:right;">
-          2.5085996
+          1.2542998
           </td>
           <td style="text-align:right;">
-          1.0544427
+          0.4910878
           </td>
           <td style="text-align:right;">
-          206.979636
+          107.2732686
           </td>
           <td style="text-align:right;">
           0.0000000
@@ -369,7 +369,7 @@ ges
 
           - </td>
             <td style="text-align:right;">
-            0.2704764
+            0.2873149
             </td>
             </tr>
             <tr>
@@ -383,16 +383,16 @@ ges
             2
             </td>
             <td style="text-align:right;">
-            348
+            168
             </td>
             <td style="text-align:right;">
-            0.1087506
+            0.0543753
             </td>
             <td style="text-align:right;">
-            0.1962752
+            0.0939150
             </td>
             <td style="text-align:right;">
-            96.408479
+            48.6346765
             </td>
             <td style="text-align:right;">
             0.0000000
@@ -401,7 +401,7 @@ ges
 
             - </td>
               <td style="text-align:right;">
-              0.0158185
+              0.0171766
               </td>
               </tr>
               <tr>
@@ -415,24 +415,24 @@ ges
               4
               </td>
               <td style="text-align:right;">
-              348
+              168
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0177065
               </td>
               <td style="text-align:right;">
-              0.6910326
+              0.3261065
               </td>
               <td style="text-align:right;">
-              0.000000
+              2.2804605
               </td>
               <td style="text-align:right;">
-              1.0000000
+              0.0627372
               </td>
               <td style="text-align:left;">
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0056588
               </td>
               </tr>
               <tr>
@@ -446,24 +446,24 @@ ges
               2
               </td>
               <td style="text-align:right;">
-              174
+              84
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0354106
               </td>
               <td style="text-align:right;">
-              1.0544427
+              0.4910878
               </td>
               <td style="text-align:right;">
-              0.000000
+              3.0284703
               </td>
               <td style="text-align:right;">
-              1.0000000
+              0.0537042
               </td>
               <td style="text-align:left;">
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0112532
               </td>
               </tr>
               <tr>
@@ -477,24 +477,24 @@ ges
               2
               </td>
               <td style="text-align:right;">
-              348
+              168
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0011781
               </td>
               <td style="text-align:right;">
-              0.1962752
+              0.0939150
               </td>
               <td style="text-align:right;">
-              0.000000
+              1.0537378
               </td>
               <td style="text-align:right;">
-              1.0000000
+              0.3509248
               </td>
               <td style="text-align:left;">
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0003785
               </td>
               </tr>
               <tr>
@@ -508,16 +508,16 @@ ges
               4
               </td>
               <td style="text-align:right;">
-              348
+              168
               </td>
               <td style="text-align:right;">
-              0.0818022
+              0.0409011
               </td>
               <td style="text-align:right;">
-              0.1962752
+              0.0939150
               </td>
               <td style="text-align:right;">
-              36.259243
+              18.2915088
               </td>
               <td style="text-align:right;">
               0.0000000
@@ -526,7 +526,7 @@ ges
 
               - </td>
                 <td style="text-align:right;">
-                0.0119455
+                0.0129754
                 </td>
                 </tr>
                 <tr>
@@ -540,24 +540,24 @@ ges
                 4
                 </td>
                 <td style="text-align:right;">
-                348
+                168
                 </td>
                 <td style="text-align:right;">
-                0.0000000
+                0.0030445
                 </td>
                 <td style="text-align:right;">
-                0.1962752
+                0.0939150
                 </td>
                 <td style="text-align:right;">
-                0.000000
+                1.3615617
                 </td>
                 <td style="text-align:right;">
-                1.0000000
+                0.2494276
                 </td>
                 <td style="text-align:left;">
                 </td>
                 <td style="text-align:right;">
-                0.0000000
+                0.0009776
                 </td>
                 </tr>
                 </tbody>
@@ -593,10 +593,10 @@ p\<.05
 att
 </td>
 <td style="text-align:right;">
-0.7442367
+0.7433823
 </td>
 <td style="text-align:right;">
-0
+4.5e-06
 </td>
 <td style="text-align:left;">
 
@@ -610,10 +610,10 @@ att
   site:att
   </td>
   <td style="text-align:right;">
-  0.7442367
+  0.7433823
   </td>
   <td style="text-align:right;">
-  0
+  4.5e-06
   </td>
   <td style="text-align:left;">
 
@@ -627,10 +627,10 @@ att
     expt:att
     </td>
     <td style="text-align:right;">
-    0.7442367
+    0.7433823
     </td>
     <td style="text-align:right;">
-    0
+    4.5e-06
     </td>
     <td style="text-align:left;">
 
@@ -644,10 +644,10 @@ att
       site:expt:att
       </td>
       <td style="text-align:right;">
-      0.7442367
+      0.7433823
       </td>
       <td style="text-align:right;">
-      0
+      4.5e-06
       </td>
       <td style="text-align:left;">
 
@@ -661,10 +661,10 @@ att
         att:AUCMeasure
         </td>
         <td style="text-align:right;">
-        0.6609935
+        0.6733233
         </td>
         <td style="text-align:right;">
-        0
+        1.0e-07
         </td>
         <td style="text-align:left;">
 
@@ -678,10 +678,10 @@ att
           site:att:AUCMeasure
           </td>
           <td style="text-align:right;">
-          0.6609935
+          0.6733233
           </td>
           <td style="text-align:right;">
-          0
+          1.0e-07
           </td>
           <td style="text-align:left;">
 
@@ -695,10 +695,10 @@ att
             expt:att:AUCMeasure
             </td>
             <td style="text-align:right;">
-            0.6609935
+            0.6733233
             </td>
             <td style="text-align:right;">
-            0
+            1.0e-07
             </td>
             <td style="text-align:left;">
 
@@ -712,10 +712,10 @@ att
               site:expt:att:AUCMeasure
               </td>
               <td style="text-align:right;">
-              0.6609935
+              0.6733233
               </td>
               <td style="text-align:right;">
-              0
+              1.0e-07
               </td>
               <td style="text-align:left;">
 
@@ -763,7 +763,7 @@ p\[HF\]\<.05
 att
 </td>
 <td style="text-align:right;">
-0.7963284
+0.7957870
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -772,7 +772,7 @@ att
 
 - </td>
   <td style="text-align:right;">
-  0.8025034
+  0.8086782
   </td>
   <td style="text-align:right;">
   0.0000000
@@ -789,18 +789,18 @@ att
     site:att
     </td>
     <td style="text-align:right;">
-    0.7963284
+    0.7957870
     </td>
     <td style="text-align:right;">
-    1.0000000
+    0.6003589
     </td>
     <td style="text-align:left;">
     </td>
     <td style="text-align:right;">
-    0.8025034
+    0.8086782
     </td>
     <td style="text-align:right;">
-    1.0000000
+    0.6035348
     </td>
     <td style="text-align:left;">
     </td>
@@ -813,19 +813,67 @@ att
     expt:att
     </td>
     <td style="text-align:right;">
-    0.7963284
+    0.7957870
     </td>
     <td style="text-align:right;">
-    0.0217111
+    0.1820569
+    </td>
+    <td style="text-align:left;">
+    </td>
+    <td style="text-align:right;">
+    0.8086782
+    </td>
+    <td style="text-align:right;">
+    0.1811764
+    </td>
+    <td style="text-align:left;">
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align:left;">
+    8
+    </td>
+    <td style="text-align:left;">
+    site:expt:att
+    </td>
+    <td style="text-align:right;">
+    0.7957870
+    </td>
+    <td style="text-align:right;">
+    0.0784659
+    </td>
+    <td style="text-align:left;">
+    </td>
+    <td style="text-align:right;">
+    0.8086782
+    </td>
+    <td style="text-align:right;">
+    0.0773608
+    </td>
+    <td style="text-align:left;">
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align:left;">
+    13
+    </td>
+    <td style="text-align:left;">
+    att:AUCMeasure
+    </td>
+    <td style="text-align:right;">
+    0.7537631
+    </td>
+    <td style="text-align:right;">
+    0.0000000
     </td>
     <td style="text-align:left;">
 
     - </td>
       <td style="text-align:right;">
-      0.8025034
+      0.7645530
       </td>
       <td style="text-align:right;">
-      0.0214014
+      0.0000000
       </td>
       <td style="text-align:left;">
 
@@ -833,37 +881,37 @@ att
         </tr>
         <tr>
         <td style="text-align:left;">
-        8
+        14
         </td>
         <td style="text-align:left;">
-        site:expt:att
+        site:att:AUCMeasure
         </td>
         <td style="text-align:right;">
-        0.7963284
+        0.7537631
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.3350071
         </td>
         <td style="text-align:left;">
         </td>
         <td style="text-align:right;">
-        0.8025034
+        0.7645530
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.3358667
         </td>
         <td style="text-align:left;">
         </td>
         </tr>
         <tr>
         <td style="text-align:left;">
-        13
+        15
         </td>
         <td style="text-align:left;">
-        att:AUCMeasure
+        expt:att:AUCMeasure
         </td>
         <td style="text-align:right;">
-        0.7468223
+        0.7537631
         </td>
         <td style="text-align:right;">
         0.0000000
@@ -872,7 +920,7 @@ att
 
         - </td>
           <td style="text-align:right;">
-          0.7518210
+          0.7645530
           </td>
           <td style="text-align:right;">
           0.0000000
@@ -883,80 +931,30 @@ att
             </tr>
             <tr>
             <td style="text-align:left;">
-            14
+            16
             </td>
             <td style="text-align:left;">
-            site:att:AUCMeasure
+            site:expt:att:AUCMeasure
             </td>
             <td style="text-align:right;">
-            0.7468223
+            0.7537631
             </td>
             <td style="text-align:right;">
-            1.0000000
+            0.2575259
             </td>
             <td style="text-align:left;">
             </td>
             <td style="text-align:right;">
-            0.7518210
+            0.7645530
             </td>
             <td style="text-align:right;">
-            1.0000000
+            0.2572183
             </td>
             <td style="text-align:left;">
             </td>
             </tr>
-            <tr>
-            <td style="text-align:left;">
-            15
-            </td>
-            <td style="text-align:left;">
-            expt:att:AUCMeasure
-            </td>
-            <td style="text-align:right;">
-            0.7468223
-            </td>
-            <td style="text-align:right;">
-            0.0000000
-            </td>
-            <td style="text-align:left;">
-
-            - </td>
-              <td style="text-align:right;">
-              0.7518210
-              </td>
-              <td style="text-align:right;">
-              0.0000000
-              </td>
-              <td style="text-align:left;">
-
-              - </td>
-                </tr>
-                <tr>
-                <td style="text-align:left;">
-                16
-                </td>
-                <td style="text-align:left;">
-                site:expt:att:AUCMeasure
-                </td>
-                <td style="text-align:right;">
-                0.7468223
-                </td>
-                <td style="text-align:right;">
-                1.0000000
-                </td>
-                <td style="text-align:left;">
-                </td>
-                <td style="text-align:right;">
-                0.7518210
-                </td>
-                <td style="text-align:right;">
-                1.0000000
-                </td>
-                <td style="text-align:left;">
-                </td>
-                </tr>
-                </tbody>
-                </table>
+            </tbody>
+            </table>
 
 </td>
 </tr>

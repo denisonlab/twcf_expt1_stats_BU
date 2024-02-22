@@ -67,16 +67,16 @@ ges
 1
 </td>
 <td style="text-align:right;">
-230
+111
 </td>
 <td style="text-align:right;">
-9.7494966
+4.8747483
 </td>
 <td style="text-align:right;">
-3.0117232
+1.336936
 </td>
 <td style="text-align:right;">
-744.5518955
+404.7293755
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -85,7 +85,7 @@ ges
 
 - </td>
   <td style="text-align:right;">
-  0.7314099
+  0.7515843
   </td>
   </tr>
   <tr>
@@ -99,24 +99,24 @@ ges
   1
   </td>
   <td style="text-align:right;">
-  230
+  111
   </td>
   <td style="text-align:right;">
-  0.0000000
+  0.0205653
   </td>
   <td style="text-align:right;">
-  3.0117232
+  1.336936
   </td>
   <td style="text-align:right;">
-  0.0000000
+  1.7074462
   </td>
   <td style="text-align:right;">
-  1.0000000
+  0.1940179
   </td>
   <td style="text-align:left;">
   </td>
   <td style="text-align:right;">
-  0.0000000
+  0.0126030
   </td>
   </tr>
   <tr>
@@ -130,25 +130,25 @@ ges
   1
   </td>
   <td style="text-align:right;">
-  230
+  111
   </td>
   <td style="text-align:right;">
-  0.3931323
+  0.1963186
   </td>
   <td style="text-align:right;">
-  3.0117232
+  1.336936
   </td>
   <td style="text-align:right;">
-  30.0228201
+  16.2994891
   </td>
   <td style="text-align:right;">
-  0.0000001
+  0.0000998
   </td>
   <td style="text-align:left;">
 
   - </td>
     <td style="text-align:right;">
-    0.0989419
+    0.1086113
     </td>
     </tr>
     <tr>
@@ -162,16 +162,16 @@ ges
     1
     </td>
     <td style="text-align:right;">
-    230
+    111
     </td>
     <td style="text-align:right;">
-    2.9907679
+    1.4932472
     </td>
     <td style="text-align:right;">
-    3.0117232
+    1.336936
     </td>
     <td style="text-align:right;">
-    228.3996808
+    123.9778906
     </td>
     <td style="text-align:right;">
     0.0000000
@@ -180,7 +180,7 @@ ges
 
     - </td>
       <td style="text-align:right;">
-      0.4551464
+      0.4810002
       </td>
       </tr>
       <tr>
@@ -194,16 +194,16 @@ ges
       2
       </td>
       <td style="text-align:right;">
-      460
+      222
       </td>
       <td style="text-align:right;">
-      0.6048531
+      0.3024265
       </td>
       <td style="text-align:right;">
-      0.5685111
+      0.274280
       </td>
       <td style="text-align:right;">
-      244.7027009
+      122.3908087
       </td>
       <td style="text-align:right;">
       0.0000000
@@ -212,7 +212,7 @@ ges
 
       - </td>
         <td style="text-align:right;">
-        0.1445258
+        0.1580372
         </td>
         </tr>
         <tr>
@@ -226,341 +226,342 @@ ges
         1
         </td>
         <td style="text-align:right;">
-        230
+        111
         </td>
         <td style="text-align:right;">
-        0.0000000
+        0.0526898
         </td>
         <td style="text-align:right;">
-        3.0117232
+        1.336936
         </td>
         <td style="text-align:right;">
-        0.0000000
+        4.3746034
         </td>
         <td style="text-align:right;">
-        1.0000000
-        </td>
-        <td style="text-align:left;">
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        </tr>
-        <tr>
-        <td style="text-align:left;">
-        6
-        </td>
-        <td style="text-align:left;">
-        site:task
-        </td>
-        <td style="text-align:right;">
-        1
-        </td>
-        <td style="text-align:right;">
-        230
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        <td style="text-align:right;">
-        3.0117232
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        <td style="text-align:right;">
-        1.0000000
-        </td>
-        <td style="text-align:left;">
-        </td>
-        <td style="text-align:right;">
-        0.0000000
-        </td>
-        </tr>
-        <tr>
-        <td style="text-align:left;">
-        7
-        </td>
-        <td style="text-align:left;">
-        stimulus:task
-        </td>
-        <td style="text-align:right;">
-        1
-        </td>
-        <td style="text-align:right;">
-        230
-        </td>
-        <td style="text-align:right;">
-        0.1374290
-        </td>
-        <td style="text-align:right;">
-        3.0117232
-        </td>
-        <td style="text-align:right;">
-        10.4952110
-        </td>
-        <td style="text-align:right;">
-        0.0013738
+        0.0387595
         </td>
         <td style="text-align:left;">
 
         - </td>
           <td style="text-align:right;">
-          0.0369665
+          0.0316663
           </td>
           </tr>
           <tr>
           <td style="text-align:left;">
-          10
+          6
           </td>
           <td style="text-align:left;">
-          site:att
+          site:task
           </td>
           <td style="text-align:right;">
-          2
+          1
           </td>
           <td style="text-align:right;">
-          460
+          111
           </td>
           <td style="text-align:right;">
-          0.0000000
+          0.0123321
           </td>
           <td style="text-align:right;">
-          0.5685111
+          1.336936
           </td>
           <td style="text-align:right;">
-          0.0000000
+          1.0238782
           </td>
           <td style="text-align:right;">
-          1.0000000
+          0.3138015
           </td>
           <td style="text-align:left;">
           </td>
           <td style="text-align:right;">
-          0.0000000
+          0.0075958
           </td>
           </tr>
           <tr>
           <td style="text-align:left;">
-          11
+          7
           </td>
           <td style="text-align:left;">
-          stimulus:att
+          stimulus:task
           </td>
           <td style="text-align:right;">
-          2
+          1
           </td>
           <td style="text-align:right;">
-          460
+          111
           </td>
           <td style="text-align:right;">
-          0.0017917
+          0.0677974
           </td>
           <td style="text-align:right;">
-          0.5685111
+          1.336936
           </td>
           <td style="text-align:right;">
-          0.7248773
+          5.6289232
           </td>
           <td style="text-align:right;">
-          0.4849365
-          </td>
-          <td style="text-align:left;">
-          </td>
-          <td style="text-align:right;">
-          0.0005002
-          </td>
-          </tr>
-          <tr>
-          <td style="text-align:left;">
-          12
-          </td>
-          <td style="text-align:left;">
-          task:att
-          </td>
-          <td style="text-align:right;">
-          2
-          </td>
-          <td style="text-align:right;">
-          460
-          </td>
-          <td style="text-align:right;">
-          0.0338750
-          </td>
-          <td style="text-align:right;">
-          0.5685111
-          </td>
-          <td style="text-align:right;">
-          13.7046600
-          </td>
-          <td style="text-align:right;">
-          0.0000017
+          0.0193869
           </td>
           <td style="text-align:left;">
 
           - </td>
             <td style="text-align:right;">
-            0.0093730
+            0.0403793
             </td>
             </tr>
             <tr>
             <td style="text-align:left;">
-            8
+            10
             </td>
             <td style="text-align:left;">
-            site:stimulus:task
-            </td>
-            <td style="text-align:right;">
-            1
-            </td>
-            <td style="text-align:right;">
-            230
-            </td>
-            <td style="text-align:right;">
-            0.0000000
-            </td>
-            <td style="text-align:right;">
-            3.0117232
-            </td>
-            <td style="text-align:right;">
-            0.0000000
-            </td>
-            <td style="text-align:right;">
-            1.0000000
-            </td>
-            <td style="text-align:left;">
-            </td>
-            <td style="text-align:right;">
-            0.0000000
-            </td>
-            </tr>
-            <tr>
-            <td style="text-align:left;">
-            13
-            </td>
-            <td style="text-align:left;">
-            site:stimulus:att
+            site:att
             </td>
             <td style="text-align:right;">
             2
             </td>
             <td style="text-align:right;">
-            460
+            222
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.0022628
             </td>
             <td style="text-align:right;">
-            0.5685111
+            0.274280
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.9157503
             </td>
             <td style="text-align:right;">
-            1.0000000
+            0.4017226
             </td>
             <td style="text-align:left;">
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.0014024
             </td>
             </tr>
             <tr>
             <td style="text-align:left;">
-            14
+            11
             </td>
             <td style="text-align:left;">
-            site:task:att
+            stimulus:att
             </td>
             <td style="text-align:right;">
             2
             </td>
             <td style="text-align:right;">
-            460
+            222
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.0008848
             </td>
             <td style="text-align:right;">
-            0.5685111
+            0.274280
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.3580753
             </td>
             <td style="text-align:right;">
-            1.0000000
+            0.6994234
             </td>
             <td style="text-align:left;">
             </td>
             <td style="text-align:right;">
-            0.0000000
+            0.0005488
             </td>
             </tr>
             <tr>
             <td style="text-align:left;">
-            15
+            12
             </td>
             <td style="text-align:left;">
-            stimulus:task:att
+            task:att
             </td>
             <td style="text-align:right;">
             2
             </td>
             <td style="text-align:right;">
-            460
+            222
             </td>
             <td style="text-align:right;">
-            0.0102349
+            0.0169413
             </td>
             <td style="text-align:right;">
-            0.5685111
+            0.274280
             </td>
             <td style="text-align:right;">
-            4.1406927
+            6.8560629
             </td>
             <td style="text-align:right;">
-            0.0165088
+            0.0012906
             </td>
             <td style="text-align:left;">
 
             - </td>
               <td style="text-align:right;">
-              0.0028506
+              0.0104052
               </td>
               </tr>
               <tr>
               <td style="text-align:left;">
-              16
+              8
               </td>
               <td style="text-align:left;">
-              site:stimulus:task:att
+              site:stimulus:task
               </td>
               <td style="text-align:right;">
-              2
+              1
               </td>
               <td style="text-align:right;">
-              460
+              111
               </td>
               <td style="text-align:right;">
-              0.0000000
+              0.0837813
               </td>
               <td style="text-align:right;">
-              0.5685111
+              1.336936
               </td>
               <td style="text-align:right;">
-              0.0000000
+              6.9559982
               </td>
               <td style="text-align:right;">
-              1.0000000
+              0.0095521
               </td>
               <td style="text-align:left;">
-              </td>
-              <td style="text-align:right;">
-              0.0000000
-              </td>
-              </tr>
-              </tbody>
-              </table>
+
+              - </td>
+                <td style="text-align:right;">
+                0.0494286
+                </td>
+                </tr>
+                <tr>
+                <td style="text-align:left;">
+                13
+                </td>
+                <td style="text-align:left;">
+                site:stimulus:att
+                </td>
+                <td style="text-align:right;">
+                2
+                </td>
+                <td style="text-align:right;">
+                222
+                </td>
+                <td style="text-align:right;">
+                0.0009288
+                </td>
+                <td style="text-align:right;">
+                0.274280
+                </td>
+                <td style="text-align:right;">
+                0.3758846
+                </td>
+                <td style="text-align:right;">
+                0.6871178
+                </td>
+                <td style="text-align:left;">
+                </td>
+                <td style="text-align:right;">
+                0.0005761
+                </td>
+                </tr>
+                <tr>
+                <td style="text-align:left;">
+                14
+                </td>
+                <td style="text-align:left;">
+                site:task:att
+                </td>
+                <td style="text-align:right;">
+                2
+                </td>
+                <td style="text-align:right;">
+                222
+                </td>
+                <td style="text-align:right;">
+                0.0004820
+                </td>
+                <td style="text-align:right;">
+                0.274280
+                </td>
+                <td style="text-align:right;">
+                0.1950753
+                </td>
+                <td style="text-align:right;">
+                0.8229136
+                </td>
+                <td style="text-align:left;">
+                </td>
+                <td style="text-align:right;">
+                0.0002991
+                </td>
+                </tr>
+                <tr>
+                <td style="text-align:left;">
+                15
+                </td>
+                <td style="text-align:left;">
+                stimulus:task:att
+                </td>
+                <td style="text-align:right;">
+                2
+                </td>
+                <td style="text-align:right;">
+                222
+                </td>
+                <td style="text-align:right;">
+                0.0050848
+                </td>
+                <td style="text-align:right;">
+                0.274280
+                </td>
+                <td style="text-align:right;">
+                2.0578028
+                </td>
+                <td style="text-align:right;">
+                0.1301639
+                </td>
+                <td style="text-align:left;">
+                </td>
+                <td style="text-align:right;">
+                0.0031460
+                </td>
+                </tr>
+                <tr>
+                <td style="text-align:left;">
+                16
+                </td>
+                <td style="text-align:left;">
+                site:stimulus:task:att
+                </td>
+                <td style="text-align:right;">
+                2
+                </td>
+                <td style="text-align:right;">
+                222
+                </td>
+                <td style="text-align:right;">
+                0.0062968
+                </td>
+                <td style="text-align:right;">
+                0.274280
+                </td>
+                <td style="text-align:right;">
+                2.5482716
+                </td>
+                <td style="text-align:right;">
+                0.0805030
+                </td>
+                <td style="text-align:left;">
+                </td>
+                <td style="text-align:right;">
+                0.0038929
+                </td>
+                </tr>
+                </tbody>
+                </table>
 
 </td>
 <td>
@@ -592,10 +593,10 @@ p\<.05
 att
 </td>
 <td style="text-align:right;">
-0.8032191
+0.804531
 </td>
 <td style="text-align:right;">
-0
+6.4e-06
 </td>
 <td style="text-align:left;">
 
@@ -609,10 +610,10 @@ att
   site:att
   </td>
   <td style="text-align:right;">
-  0.8032191
+  0.804531
   </td>
   <td style="text-align:right;">
-  0
+  6.4e-06
   </td>
   <td style="text-align:left;">
 
@@ -626,10 +627,10 @@ att
     stimulus:att
     </td>
     <td style="text-align:right;">
-    0.8032191
+    0.804531
     </td>
     <td style="text-align:right;">
-    0
+    6.4e-06
     </td>
     <td style="text-align:left;">
 
@@ -643,10 +644,10 @@ att
       task:att
       </td>
       <td style="text-align:right;">
-      0.8032191
+      0.804531
       </td>
       <td style="text-align:right;">
-      0
+      6.4e-06
       </td>
       <td style="text-align:left;">
 
@@ -660,10 +661,10 @@ att
         site:stimulus:att
         </td>
         <td style="text-align:right;">
-        0.8032191
+        0.804531
         </td>
         <td style="text-align:right;">
-        0
+        6.4e-06
         </td>
         <td style="text-align:left;">
 
@@ -677,10 +678,10 @@ att
           site:task:att
           </td>
           <td style="text-align:right;">
-          0.8032191
+          0.804531
           </td>
           <td style="text-align:right;">
-          0
+          6.4e-06
           </td>
           <td style="text-align:left;">
 
@@ -694,10 +695,10 @@ att
             stimulus:task:att
             </td>
             <td style="text-align:right;">
-            0.8032191
+            0.804531
             </td>
             <td style="text-align:right;">
-            0
+            6.4e-06
             </td>
             <td style="text-align:left;">
 
@@ -711,10 +712,10 @@ att
               site:stimulus:task:att
               </td>
               <td style="text-align:right;">
-              0.8032191
+              0.804531
               </td>
               <td style="text-align:right;">
-              0
+              6.4e-06
               </td>
               <td style="text-align:left;">
 
@@ -762,7 +763,7 @@ p\[HF\]\<.05
 att
 </td>
 <td style="text-align:right;">
-0.8355748
+0.8364918
 </td>
 <td style="text-align:right;">
 0.0000000
@@ -771,7 +772,7 @@ att
 
 - </td>
   <td style="text-align:right;">
-  0.8409703
+  0.8477967
   </td>
   <td style="text-align:right;">
   0.0000000
@@ -788,18 +789,18 @@ att
     site:att
     </td>
     <td style="text-align:right;">
-    0.8355748
+    0.8364918
     </td>
     <td style="text-align:right;">
-    1.0000000
+    0.3868468
     </td>
     <td style="text-align:left;">
     </td>
     <td style="text-align:right;">
-    0.8409703
+    0.8477967
     </td>
     <td style="text-align:right;">
-    1.0000000
+    0.3879857
     </td>
     <td style="text-align:left;">
     </td>
@@ -812,18 +813,18 @@ att
     stimulus:att
     </td>
     <td style="text-align:right;">
-    0.8355748
+    0.8364918
     </td>
     <td style="text-align:right;">
-    0.4617995
+    0.6612616
     </td>
     <td style="text-align:left;">
     </td>
     <td style="text-align:right;">
-    0.8409703
+    0.8477967
     </td>
     <td style="text-align:right;">
-    0.4626288
+    0.6641437
     </td>
     <td style="text-align:left;">
     </td>
@@ -836,19 +837,19 @@ att
     task:att
     </td>
     <td style="text-align:right;">
-    0.8355748
+    0.8364918
     </td>
     <td style="text-align:right;">
-    0.0000087
+    0.0025186
     </td>
     <td style="text-align:left;">
 
     - </td>
       <td style="text-align:right;">
-      0.8409703
+      0.8477967
       </td>
       <td style="text-align:right;">
-      0.0000083
+      0.0024046
       </td>
       <td style="text-align:left;">
 
@@ -862,18 +863,18 @@ att
         site:stimulus:att
         </td>
         <td style="text-align:right;">
-        0.8355748
+        0.8364918
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.6494862
         </td>
         <td style="text-align:left;">
         </td>
         <td style="text-align:right;">
-        0.8409703
+        0.8477967
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.6523239
         </td>
         <td style="text-align:left;">
         </td>
@@ -886,18 +887,18 @@ att
         site:task:att
         </td>
         <td style="text-align:right;">
-        0.8355748
+        0.8364918
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.7836361
         </td>
         <td style="text-align:left;">
         </td>
         <td style="text-align:right;">
-        0.8409703
+        0.8477967
         </td>
         <td style="text-align:right;">
-        1.0000000
+        0.7866804
         </td>
         <td style="text-align:left;">
         </td>
@@ -910,50 +911,48 @@ att
         stimulus:task:att
         </td>
         <td style="text-align:right;">
-        0.8355748
+        0.8364918
         </td>
         <td style="text-align:right;">
-        0.0226540
+        0.1387632
         </td>
         <td style="text-align:left;">
-
-        - </td>
-          <td style="text-align:right;">
-          0.8409703
-          </td>
-          <td style="text-align:right;">
-          0.0224198
-          </td>
-          <td style="text-align:left;">
-
-          - </td>
-            </tr>
-            <tr>
-            <td style="text-align:left;">
-            16
-            </td>
-            <td style="text-align:left;">
-            site:stimulus:task:att
-            </td>
-            <td style="text-align:right;">
-            0.8355748
-            </td>
-            <td style="text-align:right;">
-            1.0000000
-            </td>
-            <td style="text-align:left;">
-            </td>
-            <td style="text-align:right;">
-            0.8409703
-            </td>
-            <td style="text-align:right;">
-            1.0000000
-            </td>
-            <td style="text-align:left;">
-            </td>
-            </tr>
-            </tbody>
-            </table>
+        </td>
+        <td style="text-align:right;">
+        0.8477967
+        </td>
+        <td style="text-align:right;">
+        0.1381708
+        </td>
+        <td style="text-align:left;">
+        </td>
+        </tr>
+        <tr>
+        <td style="text-align:left;">
+        16
+        </td>
+        <td style="text-align:left;">
+        site:stimulus:task:att
+        </td>
+        <td style="text-align:right;">
+        0.8364918
+        </td>
+        <td style="text-align:right;">
+        0.0905779
+        </td>
+        <td style="text-align:left;">
+        </td>
+        <td style="text-align:right;">
+        0.8477967
+        </td>
+        <td style="text-align:right;">
+        0.0898508
+        </td>
+        <td style="text-align:left;">
+        </td>
+        </tr>
+        </tbody>
+        </table>
 
 </td>
 </tr>
