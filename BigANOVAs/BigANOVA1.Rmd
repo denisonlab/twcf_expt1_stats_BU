@@ -44,7 +44,7 @@ significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
 ```
 
-## ANOVA
+## AUC of orientation discrimination vs overall visibility report 
 ```{r anova, echo = TRUE}
 m_anova = ezANOVA(
   data = data,
@@ -57,3 +57,114 @@ m_anova = ezANOVA(
 knitr::kable(m_anova)
 ```
 
+## Detection (Experiments 1 & 3)
+```{r det, echo = TRUE}
+d <- data %>% filter(task=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site,stimulus),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Discrimination (Experiments 2 & 4)
+```{r dis, echo = TRUE}
+d <- data %>% filter(task=="2")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site,stimulus),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Texture-defined figure-ground ovals (Experiments 1 & 2)
+```{r FG, echo = TRUE}
+d <- data %>% filter(stimulus=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site,task),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Contrast-defined gratings (Experiments 3 & 4)
+```{r grating, echo = TRUE}
+d <- data %>% filter(stimulus=="2")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site,task),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 1
+```{r expt1, echo = TRUE}
+d <- data %>% filter(stimulus=="1",task=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 2
+```{r expt2, echo = TRUE}
+d <- data %>% filter(stimulus=="1",task=="2")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 3
+```{r expt3, echo = TRUE}
+d <- data %>% filter(stimulus=="2",task=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 4
+```{r expt4, echo = TRUE}
+d <- data %>% filter(stimulus=="2",task=="2")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
