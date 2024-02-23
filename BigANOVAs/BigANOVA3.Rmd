@@ -43,7 +43,7 @@ significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
 ```
 
-## ANOVA
+## ANOVA 3
 ```{r anova, echo = TRUE}
 m_anova = ezANOVA(
   data = data,
@@ -56,3 +56,73 @@ m_anova = ezANOVA(
 knitr::kable(m_anova)
 ```
 
+## Task-relevant feature visibility: BU 
+```{r BU, echo = TRUE}
+d <- data %>% filter(site=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(expt),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Task-relevant feature visibility: UCI
+```{r UCI, echo = TRUE}
+d <- data %>% filter(site=="0")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(expt),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 1: Task-relevant feature visibility 
+```{r expt1, echo = TRUE}
+d1 <- data %>% filter(expt=="1")
+m_anova = ezANOVA(
+  data = d1,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Experiment 3: Task-relevant feature visibility 
+```{r expt3, echo = TRUE}
+d3 <- data %>% filter(expt=="3")
+m_anova = ezANOVA(
+  data = d3,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+
+## Experiment 4: Task-relevant feature visibility 
+```{r expt4, echo = TRUE}
+d4 <- data %>% filter(expt=="4")
+m_anova = ezANOVA(
+  data = d4,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
