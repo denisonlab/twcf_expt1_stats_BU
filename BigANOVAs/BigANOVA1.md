@@ -3113,7 +3113,7 @@ att
 ## Experiment 1
 
 ``` r
-d <- data %>% filter(stimulus=="1",task=="1")
+d <- data %>% filter(stimulus=="1",task=="1",AUCMeasure=="1")
 m_anova = ezANOVA(
   data = d,
   dv = .(AUC),
@@ -3423,6 +3423,14 @@ att
 </tr>
 </tbody>
 </table>
+
+``` r
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+```
+
+![](BigANOVA1_files/figure-gfm/expt1-1.png)<!-- -->
 
 ## Experiment 2
 
@@ -3740,6 +3748,13 @@ att
 </tr>
 </tbody>
 </table>
+
+``` r
+ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+```
+
+![](BigANOVA1_files/figure-gfm/expt2-1.png)<!-- -->
 
 ## Experiment 3
 
@@ -4059,6 +4074,13 @@ att
 </tbody>
 </table>
 
+``` r
+ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+```
+
+![](BigANOVA1_files/figure-gfm/expt3-1.png)<!-- -->
+
 ## Experiment 4
 
 ``` r
@@ -4375,3 +4397,10 @@ att
 </tr>
 </tbody>
 </table>
+
+``` r
+ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+```
+
+![](BigANOVA1_files/figure-gfm/expt4-1.png)<!-- -->
