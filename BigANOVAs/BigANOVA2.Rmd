@@ -15,6 +15,8 @@ library(ggplot2)
 library(dplyr)
 library(ggpubr)
 library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -41,9 +43,20 @@ attComparison <- list( c("1","3"), c("1","2"), c("2","3") )
 
 significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
+
+AUCnames <- c(
+  `1` = "Overall",
+  `2` = "Feature"
+)
+
+attNames <- c(
+  `1` = "Invalid",
+  `2` = "Neutral",
+  `3` = "Valid"
+)
 ```
 
-## ANOVA
+## ANOVA 2: AUC of orientation discrimination vs overall and task-relevant feature visibility report 
 ```{r anova, echo = TRUE}
 m_anova = ezANOVA(
   data = data,
@@ -56,3 +69,98 @@ m_anova = ezANOVA(
 knitr::kable(m_anova)
 ```
 
+## Experiment 1
+```{r expt1, echo = TRUE}
+d <- data %>% filter(expt=="1")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att,AUCMeasure),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+```{r expt1stats, echo = FALSE}
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att,AUCMeasure) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate(se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) +
+  scale_fill_manual(labels = attNames, values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  facet_wrap(~AUCMeasure, labeller = as_labeller(AUCnames)) + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2) 
+```
+
+## Experiment 3
+```{r expt3, echo = TRUE}
+d <- data %>% filter(expt=="3")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att,AUCMeasure),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+```{r expt3stats, echo = FALSE}
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att,AUCMeasure) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate(se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) +
+  scale_fill_manual(labels = attNames, values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  facet_wrap(~AUCMeasure, labeller = as_labeller(AUCnames)) + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2) 
+```
+
+## Experiment 4
+```{r expt4, echo = TRUE}
+d <- data %>% filter(expt=="4")
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att,AUCMeasure),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+```{r expt4stats, echo = FALSE}
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att,AUCMeasure) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate(se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) +
+  scale_fill_manual(labels = attNames, values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  facet_wrap(~AUCMeasure, labeller = as_labeller(AUCnames)) + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2) 
+```
