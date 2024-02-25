@@ -15,6 +15,8 @@ library(ggplot2)
 library(dplyr)
 library(ggpubr)
 library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -114,7 +116,7 @@ knitr::kable(m_anova)
 ```
 
 ## Experiment 1
-```{r expt1, echo = TRUE}
+```{r expt1, echo = TRUE, out.width="50%"}
 d <- data %>% filter(stimulus=="1",task=="1",AUCMeasure=="1")
 m_anova = ezANOVA(
   data = d,
@@ -126,9 +128,59 @@ m_anova = ezANOVA(
   )
 knitr::kable(m_anova)
 
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate( se=sd/sqrt(n))
+
 # Bar plots of AUC by att for overall vs feature visibility
-ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
-  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  labs(x="Attention", y = "AUC") + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2)
+```
+
+### Paired t-tests 
+```{r expt1stats, echo = FALSE, out.width="90%"}
+# V vs I 
+dt <- d %>% filter(att=="1"|att=="3")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 1: invalid vs valid")
+my_table
+
+# I v N
+dt <- d %>% filter(att=="1"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 1: invalid vs neutral")
+my_table
+
+# V v N
+dt <- d %>% filter(att=="3"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 1: valid vs neutral")
+my_table
 ```
 
 ## Experiment 2
@@ -144,8 +196,59 @@ m_anova = ezANOVA(
   )
 knitr::kable(m_anova)
 
-ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
-  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate( se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  labs(x="Attention", y = "AUC") + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2)
+```
+
+### Paired t-tests 
+```{r expt2stats, echo = FALSE, out.width="90%"}
+# V vs I 
+dt <- d %>% filter(att=="1"|att=="3")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 2: invalid vs valid")
+my_table
+
+# I v N
+dt <- d %>% filter(att=="1"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 2: invalid vs neutral")
+my_table
+
+# V v N
+dt <- d %>% filter(att=="3"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 2: valid vs neutral")
+my_table
 ```
 
 ## Experiment 3
@@ -161,8 +264,59 @@ m_anova = ezANOVA(
   )
 knitr::kable(m_anova)
 
-ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
-  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate( se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  labs(x="Attention", y = "AUC") + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2)
+```
+
+### Paired t-tests 
+```{r expt3stats, echo = FALSE, out.width="90%"}
+# V vs I 
+dt <- d %>% filter(att=="1"|att=="3")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 3: invalid vs valid")
+my_table
+
+# I v N
+dt <- d %>% filter(att=="1"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 3: invalid vs neutral")
+my_table
+
+# V v N
+dt <- d %>% filter(att=="3"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 3: valid vs neutral")
+my_table
 ```
 
 ## Experiment 4
@@ -178,6 +332,57 @@ m_anova = ezANOVA(
   )
 knitr::kable(m_anova)
 
-ggplot(data=d, aes(x=att, y=AUC, fill=att)) + scale_fill_manual(values=colors) +
-  geom_bar(position="dodge", na.rm = TRUE, fun = "mean", stat="summary") 
+# Calculates mean, sd, se
+dsum <- d %>% group_by(att) %>% 
+  summarise( 
+    n=n(),
+    mean=mean(AUC),
+    sd=sd(AUC)
+  ) %>%
+  mutate( se=sd/sqrt(n))
+
+# Bar plots of AUC by att for overall vs feature visibility
+ggplot(data=dsum, aes(x=att, y=mean, fill=att)) + scale_fill_manual(values=colors) +
+  geom_bar(position="dodge", na.rm = TRUE, stat="identity") +
+  labs(x="Attention", y = "AUC") + 
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2)
+```
+
+### Paired t-tests 
+```{r expt4stats, echo = FALSE, out.width="90%"}
+# V vs I 
+dt <- d %>% filter(att=="1"|att=="3")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 4: invalid vs valid")
+my_table
+
+# I v N
+dt <- d %>% filter(att=="1"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 4: invalid vs neutral")
+my_table
+
+# V v N
+dt <- d %>% filter(att=="3"|att=="2")
+t.test(dt$AUC ~ dt$att, paired = TRUE) %>% report %>% 
+  as.data.frame() -> stats.table
+names(stats.table) <- c(
+  "Parameter", "Group", "Difference", "t", "df", "p", "CI",
+  "CI_lower", "CI_upper","Method","Alternative",
+  "Cohens_d","d_CI_low","d_CI_high"
+)
+my_table <- nice_table(stats.table, report="t.test", title="Expt 4: valid vs neutral")
+my_table
 ```
