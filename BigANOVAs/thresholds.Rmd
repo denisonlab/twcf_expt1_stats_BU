@@ -1,0 +1,74 @@
+---
+title: "TWCF Thresholds"
+output: github_document
+date: "2024-02-29"
+---
+
+```{r setup, echo = FALSE, include=FALSE}
+# knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+suppressPackageStartupMessages(library(tidyverse))
+library(ez)
+library(foreach)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
+knitr::opts_chunk$set(echo = TRUE)
+
+#### set path #### 
+wd  <- getwd()
+
+#### anova setup #### 
+options(contrasts=c("contr.sum","contr.poly"))
+
+#### load AUC data #### 
+analysisName = "thresholds";
+dataName <- sprintf("%s/%s.csv",wd,analysisName)
+data <- read_csv(dataName)
+
+#### Change to categorical vars ####
+data$expt <- as.factor(data$expt)
+data$site <- as.factor(data$site)
+data$subject <- as.factor(data$subject)
+```
+
+## Threshold ANOVA: all experiments 
+```{r anova, echo = TRUE}
+m_anova = ezANOVA(
+  data = data,
+  dv = .(threshold),
+  wid = .(subject),
+  between = .(site,expt),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Threshold ANOVA: Experiment 1 (cue_tex_det)
+```{r cuetexdet, echo = TRUE}
+d <- data %>% filter(expt==1)
+m_anova = ezANOVA(
+  data = d,
+  dv = .(threshold),
+  wid = .(subject),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+## Threshold ANOVA: Experiment 3 (cue_gab_det)
+```{r cuegabdet, echo = TRUE}
+d <- data %>% filter(expt==3)
+m_anova = ezANOVA(
+  data = d,
+  dv = .(threshold),
+  wid = .(subject),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
