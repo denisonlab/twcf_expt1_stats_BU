@@ -255,6 +255,31 @@ ggplot(data=dsum, aes(x=att, y=mean, fill=att)) + scale_fill_manual(values=color
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0.2)
 ```
 
+
+```{r expt4bu, echo = TRUE}
+d <- data %>% filter(expt=="4" & site==0)
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
+```{r expt4uci, echo = TRUE}
+d <- data %>% filter(expt=="4" & site==1)
+m_anova = ezANOVA(
+  data = d,
+  dv = .(AUC),
+  wid = .(subject),
+  within = .(att),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+```
+
 ```{r expt4stats, echo = FALSE, out.width="90%"}
 # V vs I 
 dt <- d %>% filter(att=="1"|att=="3")

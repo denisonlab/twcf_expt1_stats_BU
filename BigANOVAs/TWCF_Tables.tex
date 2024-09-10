@@ -1,0 +1,159 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{helvet} \renewcommand\familydefault{\sfdefault} \usepackage{caption} \usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Subjective inflation statistics},
+  pdfauthor={Karen Tian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Subjective inflation statistics}
+\author{Karen Tian}
+\date{2024-09-08}
+
+\begin{document}
+\maketitle
+
+\newpage{}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{anova-3-auc-of-orientation-discrimination-vs-task-relevant-feature-visibility-report}{%
+\subsection{ANOVA 3: AUC of orientation discrimination vs task-relevant
+feature visibility
+report}\label{anova-3-auc-of-orientation-discrimination-vs-task-relevant-feature-visibility-report}}
+
+\begin{table}[!h]
+\centering\caption{\label{tab:anova}AUC of overall stimulus visibility}
+
+\centering
+\begin{tabular}[t]{llrrrrrrlr}
+\toprule
+  & Effect & DFn & DFd & SSn & SSd & F & p & p<.05 & ges\\
+\midrule
+1 & (Intercept) & 1 & 84 & 3.475 & 1.450 & 201.299 & 0.000 & * & 0.676\\
+ 
+2 & site & 1 & 84 & 0.031 & 1.450 & 1.789 & 0.185 &  & 0.018\\
+ 
+3 & expt & 2 & 84 & 0.307 & 1.450 & 8.881 & 0.000 & * & 0.155\\
+ 
+5 & att & 2 & 168 & 0.010 & 0.218 & 3.830 & 0.024 & * & 0.006\\
+ 
+4 & site:expt & 2 & 84 & 0.051 & 1.450 & 1.466 & 0.237 &  & 0.029\\
+ 
+6 & site:att & 2 & 168 & 0.001 & 0.218 & 0.480 & 0.620 &  & 0.001\\
+ 
+7 & expt:att & 4 & 168 & 0.042 & 0.218 & 8.113 & 0.000 & * & 0.025\\
+ 
+8 & site:expt:att & 4 & 168 & 0.014 & 0.218 & 2.714 & 0.032 & * & 0.008\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{llrrl}
+\toprule
+  & Effect & W & p & p<.05\\
+\midrule
+5 & att & 0.602 & 0 & *\\
+ 
+6 & site:att & 0.602 & 0 & *\\
+ 
+7 & expt:att & 0.602 & 0 & *\\
+ 
+8 & site:expt:att & 0.602 & 0 & *\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{llrrlrrl}
+\toprule
+  & Effect & GGe & p[GG] & p[GG]<.05 & HFe & p[HF] & p[HF]<.05\\
+\midrule
+5 & att & 0.715 & 0.038 & * & 0.724 & 0.037 & *\\
+ 
+6 & site:att & 0.715 & 0.557 &  & 0.724 & 0.559 & \\
+ 
+7 & expt:att & 0.715 & 0.000 & * & 0.724 & 0.000 & *\\
+ 
+8 & site:expt:att & 0.715 & 0.050 &  & 0.724 & 0.050 & *\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The statistical tests used in this table were repeated measures ANOVAs.
+
+\end{document}

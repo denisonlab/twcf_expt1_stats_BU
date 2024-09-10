@@ -1,0 +1,96 @@
+---
+title: "TWCF_LMM"
+output: github_document
+date: "2024-04-23"
+---
+
+```{r setup, include=FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+library(ez)
+library(foreach)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
+library(lme4)
+library(lmerTest)
+library(sjstats)
+
+library(tidyverse) # needed for data manipulation.
+library(RColorBrewer) # needed for some extra colours in one of the graphs
+library(RRPP)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+#### set path #### 
+wd  <- getwd()
+
+#### anova setup #### 
+options(contrasts=c("contr.sum","contr.poly"))
+```
+
+```{r loaddata, include=FALSE}
+#### load twcf single trial data #### 
+analysisName = "Expts1-4_singleTrial";
+dataName <- sprintf("%s/%s.csv",wd,analysisName)
+data <- read_csv(dataName)
+
+#### Change to factors ####
+data$expt <- as.factor(data$expt)
+data$subjectID = as.factor(data$subjectID)
+data$site <- as.factor(data$site)
+data$cueValidity <- as.factor(data$cueValidity)
+
+# data$seen <- as.factor(data$seen)
+# data$correct <- as.factor(data$correct)
+```
+
+- Use Generalized Linear Models (GLM) when residuals are not normally distributed
+- We use a link function to do a nonlinear transform in relating predictors to prediction. A logistic link function produces binary outcomes, like in our tilt discrimination task. 
+
+- Fixed effects don't vary within a cluster 
+--- No assumed relationship within the levels (like gender)
+
+- Random effects are observed
+--- Random effects are assumed to have an influence on the dependent variable 
+--- Random effects are indicated by (|)
+
+- (1|subjectID) notation means: Intercepts can freely vary by subject but not the slopes
+--- De-means within levels
+
+```{r glm}
+model_full <- glmer(formula = ratingDis ~ 1 + cueValidity * stimStrengthID_postcue + rand + stimStrengthID_max + (1|expt) + (1|subjectID) + (1|site), 
+               data = data, family=binomial, nAGQ=0) 
+summary(model_full)
+performance::icc(model_full)
+
+model_reduced <- glmer(formula = ratingDis ~ 1 + cueValidity + (1|expt) + (1|subjectID), 
+               data = data, family=binomial, nAGQ=0) 
+summary(model_reduced)
+performance::icc(model_reduced)
+
+model_reduced2 <- glmer(formula = ratingDis ~ 1 + cueValidity * stimStrengthID_postcue + stimStrengthID_max + (1|expt) + (1|subjectID) + (1|site),
+               data = data, family=binomial, nAGQ=0) 
+
+model_reduced3 <- glmer(formula = ratingDis ~ 1 + cueValidity * stimStrengthID_postcue + (1|expt) + (1|subjectID) + (1|site),
+               data = data, family=binomial, nAGQ=0) 
+
+# Model comparison 
+# Is there merit in dropping a random effect? 
+# model.comparison(model_full,model_reduced)
+anova(model_full,model_reduced,"chisq")
+
+anova(model_full,model_reduced2,"chisq")
+
+anova(model_reduced2,model_reduced3,"chisq")
+
+# What is nAGQ
+
+# Plot 
+# ggplot(fortify(model), aes(contrast, seen, color=exposure)) +
+#   stat_summary(fun.data=mean_se, geom="pointrange") +
+#   stat_summary(aes(y=.fitted), fun.y=mean, geom="line")
+```

@@ -1,0 +1,69 @@
+---
+title: "ANOVA_stimStrength-att"
+author: "Karen Tian"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r setup, echo = FALSE, include=FALSE}
+# include prevents code and results from being displayed
+# echo prevents code 
+suppressPackageStartupMessages(library(tidyverse))
+library(ez)
+library(foreach)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
+knitr::opts_chunk$set(echo = TRUE)
+
+#### set path #### 
+# wd  <- '/Users/kantian/Dropbox/github/TWCF_FOHO/twcf_expt1_stats_BU/'
+# setwd(wd)
+
+#### anova setup #### 
+options(contrasts=c("contr.sum","contr.poly"))
+
+#### load AUC data #### 
+analysisName = "twcf_expts1-4_byContrast";
+dataName <- sprintf("../data/%s.csv",analysisName)
+data <- read_csv(dataName)
+
+#### Change to categorical vars ####
+data$expt <- as.factor(data$expt)
+data$site <- as.factor(data$site)
+data$subjectID <- as.factor(data$subjectID)
+data$attention <- as.factor(data$attention)
+data$stimStrength <- as.factor(data$stimStrength)
+
+### Plotting setup #### 
+colors = c("#F8A299","#CCCCCC","#98E6A1")
+attComparison <- list( c("1","3"), c("1","2"), c("2","3") )
+
+significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
+symbols = c("****", "***", "**", "*", "ns"))
+```
+
+## Performance as a function of stimulus strength (expt 1)
+```{r anova, echo = TRUE}
+dS <- data %>% filter(expt==1)
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(correctDis),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova)
+
+## Performance by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(correctDis), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Performance by stimulus strength (expt 1)")
+```
