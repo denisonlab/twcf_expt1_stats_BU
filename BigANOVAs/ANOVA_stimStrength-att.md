@@ -3,6 +3,12 @@ ANOVA_stimStrength-att
 Karen Tian
 2024-09-10
 
+Performance  
+• [all
+expts](#Performance-as-a-function-of-stimulus-strength-(all-expts))  
+Overall visibility  
+Task-relevant feature visibility
+
 ## Performance as a function of stimulus strength (all expts)
 
 Remove contrast 0 for Expt 3 for balanced design
@@ -187,3 +193,194 @@ knitr::kable(d, digits=3, caption="Performance by stimulus strength (expt 1)")
 | 7            | 0.927 | 0.074 |  30 | 0.014 |    0.899 |    0.955 |
 
 Performance by stimulus strength (expt 1)
+
+## Overall visibility as a function of stimulus strength
+
+All expts, remove contrast 0 for Expt 3 for balanced design
+
+``` r
+dS <- data %>% filter(stimStrength!=0) 
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(pSeen),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+```
+
+    ## Warning: You have removed one or more levels from variable "stimStrength".
+    ## Refactoring for ANOVA.
+
+    ## Warning: Data is unbalanced (unequal N per group). Make sure you specified a
+    ## well-considered value for the type argument to ezANOVA().
+
+``` r
+knitr::kable(m_anova, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) ANOVA")
+```
+
+<table class="kable_wrapper">
+<caption>
+Overall visibility by stimulus strength (expts 1-4) ANOVA
+</caption>
+<tbody>
+<tr>
+<td>
+
+|     | Effect                      | DFn |  DFd |     SSn |     SSd |       F |     p | p\<.05 |   ges |
+|:----|:----------------------------|----:|-----:|--------:|--------:|--------:|------:|:-------|------:|
+| 1   | (Intercept)                 |   1 |  117 | 757.182 | 108.018 | 820.147 | 0.000 | \*     | 0.810 |
+| 2   | site                        |   1 |  117 |   0.047 | 108.018 |   0.050 | 0.823 |        | 0.000 |
+| 3   | attention                   |   2 |  234 |   3.775 |   9.078 |  48.652 | 0.000 | \*     | 0.021 |
+| 5   | stimStrength                |   6 |  702 | 130.266 |  52.533 | 290.123 | 0.000 | \*     | 0.423 |
+| 4   | site:attention              |   2 |  234 |   0.131 |   9.078 |   1.689 | 0.187 |        | 0.001 |
+| 6   | site:stimStrength           |   6 |  702 |   0.147 |  52.533 |   0.327 | 0.923 |        | 0.001 |
+| 7   | attention:stimStrength      |  12 | 1404 |   3.430 |   7.875 |  50.956 | 0.000 | \*     | 0.019 |
+| 8   | site:attention:stimStrength |  12 | 1404 |   0.111 |   7.875 |   1.652 | 0.072 |        | 0.001 |
+
+</td>
+<td>
+
+|     | Effect                      |     W |   p | p\<.05 |
+|:----|:----------------------------|------:|----:|:-------|
+| 3   | attention                   | 0.382 |   0 | \*     |
+| 4   | site:attention              | 0.382 |   0 | \*     |
+| 5   | stimStrength                | 0.001 |   0 | \*     |
+| 6   | site:stimStrength           | 0.001 |   0 | \*     |
+| 7   | attention:stimStrength      | 0.002 |   0 | \*     |
+| 8   | site:attention:stimStrength | 0.002 |   0 | \*     |
+
+</td>
+<td>
+
+|     | Effect                      |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
+|:----|:----------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
+| 3   | attention                   | 0.618 |   0.000 | \*           | 0.621 |   0.000 | \*           |
+| 4   | site:attention              | 0.618 |   0.196 |              | 0.621 |   0.196 |              |
+| 5   | stimStrength                | 0.377 |   0.000 | \*           | 0.385 |   0.000 | \*           |
+| 6   | site:stimStrength           | 0.377 |   0.748 |              | 0.385 |   0.752 |              |
+| 7   | attention:stimStrength      | 0.391 |   0.000 | \*           | 0.409 |   0.000 | \*           |
+| 8   | site:attention:stimStrength | 0.391 |   0.149 |              | 0.409 |   0.146 |              |
+
+</td>
+</tr>
+</tbody>
+</table>
+
+``` r
+## Overall visibility by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(pSeen), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) summary stats")
+```
+
+| stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:-------------|------:|------:|----:|------:|---------:|---------:|
+| 1            | 0.576 | 0.220 | 119 | 0.020 |    0.536 |    0.616 |
+| 2            | 0.668 | 0.296 | 119 | 0.027 |    0.614 |    0.721 |
+| 3            | 0.742 | 0.341 | 119 | 0.031 |    0.680 |    0.804 |
+| 4            | 0.783 | 0.338 | 119 | 0.031 |    0.721 |    0.844 |
+| 5            | 0.830 | 0.290 | 119 | 0.027 |    0.777 |    0.882 |
+| 6            | 0.858 | 0.214 | 119 | 0.020 |    0.819 |    0.897 |
+| 7            | 0.892 | 0.154 | 119 | 0.014 |    0.864 |    0.920 |
+
+Overall visibility by stimulus strength (expts 1-4) summary stats
+
+## Task-relevant feature visibility as a function of stimulus strength
+
+Expts 134 (1,2,4), remove contrast 0 for Expt 3 for balanced design
+
+``` r
+dS <- data %>% filter(stimStrength!=0) %>% filter(expt!=2)
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(pSeenFeature),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+```
+
+    ## Warning: You have removed one or more Ss from the analysis. Refactoring
+    ## "subjectID" for ANOVA.
+
+    ## Warning: You have removed one or more levels from variable "stimStrength".
+    ## Refactoring for ANOVA.
+
+``` r
+knitr::kable(m_anova, digits=3, caption="Task-relevant feature visibility by stimulus strength (3 expts) ANOVA")
+```
+
+<table class="kable_wrapper">
+<caption>
+Task-relevant feature visibility by stimulus strength (3 expts) ANOVA
+</caption>
+<tbody>
+<tr>
+<td>
+
+|     | Effect                      | DFn |  DFd |     SSn |    SSd |       F |     p | p\<.05 |   ges |
+|:----|:----------------------------|----:|-----:|--------:|-------:|--------:|------:|:-------|------:|
+| 1   | (Intercept)                 |   1 |   88 | 470.271 | 59.941 | 690.412 | 0.000 | \*     | 0.834 |
+| 2   | site                        |   1 |   88 |   0.006 | 59.941 |   0.009 | 0.923 |        | 0.000 |
+| 3   | attention                   |   2 |  176 |  27.272 |  9.383 | 255.762 | 0.000 | \*     | 0.226 |
+| 5   | stimStrength                |   6 |  528 |  81.780 | 17.871 | 402.705 | 0.000 | \*     | 0.467 |
+| 4   | site:attention              |   2 |  176 |   0.042 |  9.383 |   0.392 | 0.676 |        | 0.000 |
+| 6   | site:stimStrength           |   6 |  528 |   0.069 | 17.871 |   0.339 | 0.916 |        | 0.001 |
+| 7   | attention:stimStrength      |  12 | 1056 |   4.426 |  6.316 |  61.667 | 0.000 | \*     | 0.045 |
+| 8   | site:attention:stimStrength |  12 | 1056 |   0.049 |  6.316 |   0.685 | 0.767 |        | 0.001 |
+
+</td>
+<td>
+
+|     | Effect                      |     W |   p | p\<.05 |
+|:----|:----------------------------|------:|----:|:-------|
+| 3   | attention                   | 0.397 |   0 | \*     |
+| 4   | site:attention              | 0.397 |   0 | \*     |
+| 5   | stimStrength                | 0.002 |   0 | \*     |
+| 6   | site:stimStrength           | 0.002 |   0 | \*     |
+| 7   | attention:stimStrength      | 0.005 |   0 | \*     |
+| 8   | site:attention:stimStrength | 0.005 |   0 | \*     |
+
+</td>
+<td>
+
+|     | Effect                      |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
+|:----|:----------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
+| 3   | attention                   | 0.624 |   0.000 | \*           | 0.629 |   0.000 | \*           |
+| 4   | site:attention              | 0.624 |   0.578 |              | 0.629 |   0.580 |              |
+| 5   | stimStrength                | 0.376 |   0.000 | \*           | 0.387 |   0.000 | \*           |
+| 6   | site:stimStrength           | 0.376 |   0.739 |              | 0.387 |   0.744 |              |
+| 7   | attention:stimStrength      | 0.426 |   0.000 | \*           | 0.455 |   0.000 | \*           |
+| 8   | site:attention:stimStrength | 0.426 |   0.638 |              | 0.455 |   0.648 |              |
+
+</td>
+</tr>
+</tbody>
+</table>
+
+``` r
+## Task-relevant feature visibility by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(pSeenFeature), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Task-relevant feature visibility by stimulus strength (expts 1-4) summary stats")
+```
+
+| stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:-------------|------:|------:|----:|------:|---------:|---------:|
+| 1            | 0.556 | 0.226 |  90 | 0.024 |    0.509 |    0.604 |
+| 2            | 0.658 | 0.259 |  90 | 0.027 |    0.604 |    0.712 |
+| 3            | 0.740 | 0.271 |  90 | 0.029 |    0.684 |    0.797 |
+| 4            | 0.791 | 0.286 |  90 | 0.030 |    0.731 |    0.851 |
+| 5            | 0.835 | 0.275 |  90 | 0.029 |    0.777 |    0.893 |
+| 6            | 0.862 | 0.261 |  90 | 0.028 |    0.808 |    0.917 |
+| 7            | 0.905 | 0.221 |  90 | 0.023 |    0.859 |    0.951 |
+
+Task-relevant feature visibility by stimulus strength (expts 1-4)
+summary stats

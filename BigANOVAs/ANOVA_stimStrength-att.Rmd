@@ -47,6 +47,11 @@ significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
 ```
 
+Performance  
+ • [all expts](#Performance-as-a-function-of-stimulus-strength-(all-expts))  
+Overall visibility  
+Task-relevant feature visibility 
+ 
 ## Performance as a function of stimulus strength (all expts)
 Remove contrast 0 for Expt 3 for balanced design
 ```{r anova-expt1-4, echo = TRUE}
@@ -88,4 +93,48 @@ d <- dS %>% group_by(stimStrength) %>%
          ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
          ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
 knitr::kable(d, digits=3, caption="Performance by stimulus strength (expt 1)")
+```
+
+## Overall visibility as a function of stimulus strength
+All expts, remove contrast 0 for Expt 3 for balanced design
+```{r anova-expt1-4-ov, echo = TRUE}
+dS <- data %>% filter(stimStrength!=0) 
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(pSeen),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) ANOVA")
+
+## Overall visibility by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(pSeen), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) summary stats")
+```
+
+## Task-relevant feature visibility as a function of stimulus strength
+Expts 134 (1,2,4), remove contrast 0 for Expt 3 for balanced design
+```{r anova-expt1-4-fv, echo = TRUE}
+dS <- data %>% filter(stimStrength!=0) %>% filter(expt!=2)
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(pSeenFeature),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Task-relevant feature visibility by stimulus strength (3 expts) ANOVA")
+
+## Task-relevant feature visibility by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(pSeenFeature), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Task-relevant feature visibility by stimulus strength (expts 1-4) summary stats")
 ```
