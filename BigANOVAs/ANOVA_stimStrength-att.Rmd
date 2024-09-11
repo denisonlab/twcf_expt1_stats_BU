@@ -47,8 +47,30 @@ significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
 symbols = c("****", "***", "**", "*", "ns"))
 ```
 
+## Performance as a function of stimulus strength (all expts)
+Remove contrast 0 for Expt 3 for balanced design
+```{r anova-expt1-4, echo = TRUE}
+dS <- data %>% filter(stimStrength!=0) 
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(correctDis),
+  wid = .(subjectID),
+  within = .(attention,stimStrength),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Performance by stimulus strength (expts 1-4) ANOVA")
+
+## Performance by stimulus strength
+d <- dS %>% group_by(stimStrength) %>%
+  summarise(mean=mean(correctDis), sd=sd(correctDis), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
+         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+knitr::kable(d, digits=3, caption="Performance by stimulus strength (expts 1-4) summary stats")
+```
+
 ## Performance as a function of stimulus strength (expt 1)
-```{r anova, echo = TRUE}
+```{r anova-expt1, echo = TRUE}
 dS <- data %>% filter(expt==1)
 m_anova = ezANOVA(
   data = dS,
