@@ -1,7 +1,7 @@
 ANOVA_stimStrength-att
 ================
 Karen Tian
-2024-09-11
+2024-09-17
 
 Performance  
 • [all
@@ -9,16 +9,97 @@ expts](#Performance-as-a-function-of-stimulus-strength-(all-expts))
 Overall visibility  
 Task-relevant feature visibility
 
-## Performance as a function of stimulus strength (all expts)
+## Reaction time as a function of stimulus strength (all expts)
 
 Remove contrast 0 for Expt 3 for balanced design
 
     ## Warning: You have removed one or more levels from variable "stimStrength".
     ## Refactoring for ANOVA.
 
-    ## Warning: "stimType" will be treated as numeric.
+    ## Warning: Data is unbalanced (unequal N per group). Make sure you specified a
+    ## well-considered value for the type argument to ezANOVA().
 
-    ## Warning: "taskType" will be treated as numeric.
+<table class="kable_wrapper">
+<caption>
+Reaction time (s) by stimulus strength (expts 1-4) ANOVA
+</caption>
+<tbody>
+<tr>
+<td>
+
+|     | Effect                      | DFn |  DFd |      SSn |     SSd |        F |     p | p\<.05 |   ges |
+|:----|:----------------------------|----:|-----:|---------:|--------:|---------:|------:|:-------|------:|
+| 1   | (Intercept)                 |   1 |  117 | 1585.910 | 141.799 | 1308.551 | 0.000 | \*     | 0.900 |
+| 2   | site                        |   1 |  117 |    5.581 | 141.799 |    4.605 | 0.034 | \*     | 0.031 |
+| 3   | stimStrength                |   6 |  702 |    1.837 |  14.759 |   14.560 | 0.000 | \*     | 0.010 |
+| 5   | attention                   |   2 |  234 |   77.877 |  14.889 |  611.969 | 0.000 | \*     | 0.305 |
+| 4   | site:stimStrength           |   6 |  702 |    0.658 |  14.759 |    5.218 | 0.000 | \*     | 0.004 |
+| 6   | site:attention              |   2 |  234 |    0.665 |  14.889 |    5.222 | 0.006 | \*     | 0.004 |
+| 7   | stimStrength:attention      |  12 | 1404 |    1.508 |   5.657 |   31.195 | 0.000 | \*     | 0.008 |
+| 8   | site:stimStrength:attention |  12 | 1404 |    0.078 |   5.657 |    1.608 | 0.083 |        | 0.000 |
+
+</td>
+<td>
+
+|     | Effect                      |     W |   p | p\<.05 |
+|:----|:----------------------------|------:|----:|:-------|
+| 3   | stimStrength                | 0.011 |   0 | \*     |
+| 4   | site:stimStrength           | 0.011 |   0 | \*     |
+| 5   | attention                   | 0.377 |   0 | \*     |
+| 6   | site:attention              | 0.377 |   0 | \*     |
+| 7   | stimStrength:attention      | 0.049 |   0 | \*     |
+| 8   | site:stimStrength:attention | 0.049 |   0 | \*     |
+
+</td>
+<td>
+
+|     | Effect                      |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
+|:----|:----------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
+| 3   | stimStrength                | 0.383 |   0.000 | \*           | 0.391 |   0.000 | \*           |
+| 4   | site:stimStrength           | 0.383 |   0.004 | \*           | 0.391 |   0.004 | \*           |
+| 5   | attention                   | 0.616 |   0.000 | \*           | 0.620 |   0.000 | \*           |
+| 6   | site:attention              | 0.616 |   0.017 | \*           | 0.620 |   0.017 | \*           |
+| 7   | stimStrength:attention      | 0.646 |   0.000 | \*           | 0.696 |   0.000 | \*           |
+| 8   | site:stimStrength:attention | 0.646 |   0.121 |              | 0.696 |   0.115 |              |
+
+</td>
+</tr>
+</tbody>
+</table>
+
+| stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:-------------|------:|------:|----:|------:|---------:|---------:|
+| 1            | 0.756 | 0.103 | 119 | 0.009 |    0.737 |    0.774 |
+| 2            | 0.807 | 0.129 | 119 | 0.012 |    0.784 |    0.830 |
+| 3            | 0.814 | 0.140 | 119 | 0.013 |    0.789 |    0.840 |
+| 4            | 0.823 | 0.147 | 119 | 0.013 |    0.797 |    0.850 |
+| 5            | 0.823 | 0.139 | 119 | 0.013 |    0.798 |    0.848 |
+| 6            | 0.797 | 0.129 | 119 | 0.012 |    0.773 |    0.820 |
+| 7            | 0.756 | 0.116 | 119 | 0.011 |    0.735 |    0.777 |
+
+RT by stimulus strength (expts 1-4) summary stats
+
+| site |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:-----|------:|------:|----:|------:|---------:|---------:|
+| 0    | 0.749 | 0.167 |  59 | 0.022 |    0.706 |    0.792 |
+| 1    | 0.843 | 0.164 |  60 | 0.021 |    0.802 |    0.885 |
+
+RT by stimulus strength by site (expts 1-4)
+
+| attention |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:----------|------:|------:|----:|------:|---------:|---------:|
+| -1        | 0.968 | 0.130 | 119 | 0.012 |    0.944 |    0.991 |
+| 0         | 0.868 | 0.151 | 119 | 0.014 |    0.841 |    0.895 |
+| 1         | 0.554 | 0.144 | 119 | 0.013 |    0.528 |    0.580 |
+
+RT by stimulus strength by attention (expts 1-4)
+
+## Performance as a function of stimulus strength (all expts)
+
+Remove contrast 0 for Expt 3 for balanced design
+
+    ## Warning: You have removed one or more levels from variable "stimStrength".
+    ## Refactoring for ANOVA.
 
     ## Warning: Data is unbalanced (unequal N per group). Make sure you specified a
     ## well-considered value for the type argument to ezANOVA().
@@ -31,100 +112,40 @@ Performance by stimulus strength (expts 1-4) ANOVA
 <tr>
 <td>
 
-|     | Effect                                        | DFn |  DFd |      SSn |   SSd |         F |     p | p\<.05 |   ges |
-|:----|:----------------------------------------------|----:|-----:|---------:|------:|----------:|------:|:-------|------:|
-| 1   | (Intercept)                                   |   1 |  111 | 1458.355 | 7.692 | 21043.961 | 0.000 | \*     | 0.988 |
-| 2   | site                                          |   1 |  111 |    0.407 | 7.692 |     5.873 | 0.017 | \*     | 0.023 |
-| 3   | stimType                                      |   1 |  111 |    0.026 | 7.692 |     0.370 | 0.544 |        | 0.001 |
-| 4   | taskType                                      |   1 |  111 |    0.164 | 7.692 |     2.372 | 0.126 |        | 0.009 |
-| 9   | attention                                     |   2 |  222 |   18.467 | 2.296 |   892.798 | 0.000 | \*     | 0.517 |
-| 17  | stimStrength                                  |   6 |  666 |   26.764 | 3.971 |   748.050 | 0.000 | \*     | 0.608 |
-| 5   | site:stimType                                 |   1 |  111 |    0.001 | 7.692 |     0.008 | 0.929 |        | 0.000 |
-| 6   | site:taskType                                 |   1 |  111 |    0.512 | 7.692 |     7.382 | 0.008 | \*     | 0.029 |
-| 7   | stimType:taskType                             |   1 |  111 |    0.356 | 7.692 |     5.136 | 0.025 | \*     | 0.020 |
-| 10  | site:attention                                |   2 |  222 |    0.057 | 2.296 |     2.777 | 0.064 |        | 0.003 |
-| 11  | stimType:attention                            |   2 |  222 |    0.664 | 2.296 |    32.079 | 0.000 | \*     | 0.037 |
-| 12  | taskType:attention                            |   2 |  222 |    0.144 | 2.296 |     6.975 | 0.001 | \*     | 0.008 |
-| 18  | site:stimStrength                             |   6 |  666 |    0.006 | 3.971 |     0.177 | 0.983 |        | 0.000 |
-| 19  | stimType:stimStrength                         |   6 |  666 |    0.053 | 3.971 |     1.469 | 0.186 |        | 0.003 |
-| 20  | taskType:stimStrength                         |   6 |  666 |    0.555 | 3.971 |    15.521 | 0.000 | \*     | 0.031 |
-| 25  | attention:stimStrength                        |  12 | 1332 |    1.587 | 3.267 |    53.926 | 0.000 | \*     | 0.084 |
-| 8   | site:stimType:taskType                        |   1 |  111 |    0.043 | 7.692 |     0.616 | 0.434 |        | 0.002 |
-| 13  | site:stimType:attention                       |   2 |  222 |    0.022 | 2.296 |     1.060 | 0.348 |        | 0.001 |
-| 14  | site:taskType:attention                       |   2 |  222 |    0.000 | 2.296 |     0.024 | 0.977 |        | 0.000 |
-| 15  | stimType:taskType:attention                   |   2 |  222 |    0.103 | 2.296 |     4.989 | 0.008 | \*     | 0.006 |
-| 21  | site:stimType:stimStrength                    |   6 |  666 |    0.023 | 3.971 |     0.639 | 0.699 |        | 0.001 |
-| 22  | site:taskType:stimStrength                    |   6 |  666 |    0.022 | 3.971 |     0.606 | 0.726 |        | 0.001 |
-| 23  | stimType:taskType:stimStrength                |   6 |  666 |    0.869 | 3.971 |    24.292 | 0.000 | \*     | 0.048 |
-| 26  | site:attention:stimStrength                   |  12 | 1332 |    0.060 | 3.267 |     2.045 | 0.018 | \*     | 0.003 |
-| 27  | stimType:attention:stimStrength               |  12 | 1332 |    0.118 | 3.267 |     4.008 | 0.000 | \*     | 0.007 |
-| 28  | taskType:attention:stimStrength               |  12 | 1332 |    0.207 | 3.267 |     7.027 | 0.000 | \*     | 0.012 |
-| 16  | site:stimType:taskType:attention              |   2 |  222 |    0.008 | 2.296 |     0.367 | 0.693 |        | 0.000 |
-| 24  | site:stimType:taskType:stimStrength           |   6 |  666 |    0.056 | 3.971 |     1.552 | 0.159 |        | 0.003 |
-| 29  | site:stimType:attention:stimStrength          |  12 | 1332 |    0.060 | 3.267 |     2.043 | 0.018 | \*     | 0.003 |
-| 30  | site:taskType:attention:stimStrength          |  12 | 1332 |    0.029 | 3.267 |     0.991 | 0.455 |        | 0.002 |
-| 31  | stimType:taskType:attention:stimStrength      |  12 | 1332 |    0.070 | 3.267 |     2.366 | 0.005 | \*     | 0.004 |
-| 32  | site:stimType:taskType:attention:stimStrength |  12 | 1332 |    0.068 | 3.267 |     2.294 | 0.007 | \*     | 0.004 |
+|     | Effect                      | DFn |  DFd |      SSn |   SSd |         F |     p | p\<.05 |   ges |
+|:----|:----------------------------|----:|-----:|---------:|------:|----------:|------:|:-------|------:|
+| 1   | (Intercept)                 |   1 |  117 | 1458.355 | 8.787 | 19418.253 | 0.000 | \*     | 0.986 |
+| 2   | site                        |   1 |  117 |    0.407 | 8.787 |     5.416 | 0.022 | \*     | 0.019 |
+| 3   | stimStrength                |   6 |  702 |   26.764 | 5.551 |   564.069 | 0.000 | \*     | 0.556 |
+| 5   | attention                   |   2 |  234 |   18.467 | 3.243 |   666.256 | 0.000 | \*     | 0.463 |
+| 4   | site:stimStrength           |   6 |  702 |    0.007 | 5.551 |     0.150 | 0.989 |        | 0.000 |
+| 6   | site:attention              |   2 |  234 |    0.059 | 3.243 |     2.118 | 0.123 |        | 0.003 |
+| 7   | stimStrength:attention      |  12 | 1404 |    1.587 | 3.818 |    48.644 | 0.000 | \*     | 0.069 |
+| 8   | site:stimStrength:attention |  12 | 1404 |    0.062 | 3.818 |     1.906 | 0.030 | \*     | 0.003 |
 
 </td>
 <td>
 
-|     | Effect                                        |     W |   p | p\<.05 |
-|:----|:----------------------------------------------|------:|----:|:-------|
-| 9   | attention                                     | 0.564 |   0 | \*     |
-| 10  | site:attention                                | 0.564 |   0 | \*     |
-| 11  | stimType:attention                            | 0.564 |   0 | \*     |
-| 12  | taskType:attention                            | 0.564 |   0 | \*     |
-| 13  | site:stimType:attention                       | 0.564 |   0 | \*     |
-| 14  | site:taskType:attention                       | 0.564 |   0 | \*     |
-| 15  | stimType:taskType:attention                   | 0.564 |   0 | \*     |
-| 16  | site:stimType:taskType:attention              | 0.564 |   0 | \*     |
-| 17  | stimStrength                                  | 0.073 |   0 | \*     |
-| 18  | site:stimStrength                             | 0.073 |   0 | \*     |
-| 19  | stimType:stimStrength                         | 0.073 |   0 | \*     |
-| 20  | taskType:stimStrength                         | 0.073 |   0 | \*     |
-| 21  | site:stimType:stimStrength                    | 0.073 |   0 | \*     |
-| 22  | site:taskType:stimStrength                    | 0.073 |   0 | \*     |
-| 23  | stimType:taskType:stimStrength                | 0.073 |   0 | \*     |
-| 24  | site:stimType:taskType:stimStrength           | 0.073 |   0 | \*     |
-| 25  | attention:stimStrength                        | 0.086 |   0 | \*     |
-| 26  | site:attention:stimStrength                   | 0.086 |   0 | \*     |
-| 27  | stimType:attention:stimStrength               | 0.086 |   0 | \*     |
-| 28  | taskType:attention:stimStrength               | 0.086 |   0 | \*     |
-| 29  | site:stimType:attention:stimStrength          | 0.086 |   0 | \*     |
-| 30  | site:taskType:attention:stimStrength          | 0.086 |   0 | \*     |
-| 31  | stimType:taskType:attention:stimStrength      | 0.086 |   0 | \*     |
-| 32  | site:stimType:taskType:attention:stimStrength | 0.086 |   0 | \*     |
+|     | Effect                      |     W |   p | p\<.05 |
+|:----|:----------------------------|------:|----:|:-------|
+| 3   | stimStrength                | 0.035 |   0 | \*     |
+| 4   | site:stimStrength           | 0.035 |   0 | \*     |
+| 5   | attention                   | 0.530 |   0 | \*     |
+| 6   | site:attention              | 0.530 |   0 | \*     |
+| 7   | stimStrength:attention      | 0.069 |   0 | \*     |
+| 8   | site:stimStrength:attention | 0.069 |   0 | \*     |
 
 </td>
 <td>
 
-|     | Effect                                        |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
-|:----|:----------------------------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
-| 9   | attention                                     | 0.696 |   0.000 | \*           | 0.702 |   0.000 | \*           |
-| 10  | site:attention                                | 0.696 |   0.084 |              | 0.702 |   0.084 |              |
-| 11  | stimType:attention                            | 0.696 |   0.000 | \*           | 0.702 |   0.000 | \*           |
-| 12  | taskType:attention                            | 0.696 |   0.004 | \*           | 0.702 |   0.004 | \*           |
-| 13  | site:stimType:attention                       | 0.696 |   0.328 |              | 0.702 |   0.328 |              |
-| 14  | site:taskType:attention                       | 0.696 |   0.938 |              | 0.702 |   0.939 |              |
-| 15  | stimType:taskType:attention                   | 0.696 |   0.017 | \*           | 0.702 |   0.016 | \*           |
-| 16  | site:stimType:taskType:attention              | 0.696 |   0.616 |              | 0.702 |   0.618 |              |
-| 17  | stimStrength                                  | 0.484 |   0.000 | \*           | 0.499 |   0.000 | \*           |
-| 18  | site:stimStrength                             | 0.484 |   0.907 |              | 0.499 |   0.912 |              |
-| 19  | stimType:stimStrength                         | 0.484 |   0.224 |              | 0.499 |   0.223 |              |
-| 20  | taskType:stimStrength                         | 0.484 |   0.000 | \*           | 0.499 |   0.000 | \*           |
-| 21  | site:stimType:stimStrength                    | 0.484 |   0.586 |              | 0.499 |   0.590 |              |
-| 22  | site:taskType:stimStrength                    | 0.484 |   0.607 |              | 0.499 |   0.611 |              |
-| 23  | stimType:taskType:stimStrength                | 0.484 |   0.000 | \*           | 0.499 |   0.000 | \*           |
-| 24  | site:stimType:taskType:stimStrength           | 0.484 |   0.202 |              | 0.499 |   0.201 |              |
-| 25  | attention:stimStrength                        | 0.748 |   0.000 | \*           | 0.820 |   0.000 | \*           |
-| 26  | site:attention:stimStrength                   | 0.748 |   0.032 | \*           | 0.820 |   0.027 | \*           |
-| 27  | stimType:attention:stimStrength               | 0.748 |   0.000 | \*           | 0.820 |   0.000 | \*           |
-| 28  | taskType:attention:stimStrength               | 0.748 |   0.000 | \*           | 0.820 |   0.000 | \*           |
-| 29  | site:stimType:attention:stimStrength          | 0.748 |   0.032 | \*           | 0.820 |   0.027 | \*           |
-| 30  | site:taskType:attention:stimStrength          | 0.748 |   0.445 |              | 0.820 |   0.448 |              |
-| 31  | stimType:taskType:attention:stimStrength      | 0.748 |   0.012 | \*           | 0.820 |   0.009 | \*           |
-| 32  | site:stimType:taskType:attention:stimStrength | 0.748 |   0.015 | \*           | 0.820 |   0.012 | \*           |
+|     | Effect                      |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
+|:----|:----------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
+| 3   | stimStrength                | 0.427 |   0.000 | \*           | 0.437 |   0.000 | \*           |
+| 4   | site:stimStrength           | 0.427 |   0.906 |              | 0.437 |   0.910 |              |
+| 5   | attention                   | 0.680 |   0.000 | \*           | 0.685 |   0.000 | \*           |
+| 6   | site:attention              | 0.680 |   0.140 |              | 0.685 |   0.140 |              |
+| 7   | stimStrength:attention      | 0.707 |   0.000 | \*           | 0.767 |   0.000 | \*           |
+| 8   | site:stimStrength:attention | 0.707 |   0.052 |              | 0.767 |   0.046 | \*           |
 
 </td>
 </tr>
@@ -133,17 +154,32 @@ Performance by stimulus strength (expts 1-4) ANOVA
 
 | stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
 |:-------------|------:|------:|----:|------:|---------:|---------:|
-| 1            | 0.576 | 0.103 | 119 | 0.009 |    0.557 |    0.595 |
+| 1            | 0.576 | 0.103 | 119 | 0.009 |    0.557 |    0.594 |
 | 2            | 0.668 | 0.129 | 119 | 0.012 |    0.644 |    0.691 |
-| 3            | 0.742 | 0.140 | 119 | 0.013 |    0.716 |    0.767 |
-| 4            | 0.783 | 0.147 | 119 | 0.013 |    0.756 |    0.809 |
+| 3            | 0.742 | 0.140 | 119 | 0.013 |    0.717 |    0.767 |
+| 4            | 0.783 | 0.147 | 119 | 0.013 |    0.757 |    0.809 |
 | 5            | 0.830 | 0.139 | 119 | 0.013 |    0.805 |    0.855 |
-| 6            | 0.858 | 0.129 | 119 | 0.012 |    0.834 |    0.881 |
+| 6            | 0.858 | 0.129 | 119 | 0.012 |    0.835 |    0.881 |
 | 7            | 0.892 | 0.116 | 119 | 0.011 |    0.871 |    0.913 |
 
 Performance by stimulus strength (expts 1-4) summary stats
 
-## Performance across successive stim strenghts
+| site |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:-----|------:|------:|----:|------:|---------:|---------:|
+| 0    | 0.751 | 0.167 |  59 | 0.022 |    0.709 |    0.794 |
+| 1    | 0.777 | 0.164 |  60 | 0.021 |    0.735 |    0.818 |
+
+Performance by stimulus strength by site (expts 1-4)
+
+| attention |  mean |    sd |   n |    se | ci.lower | ci.upper |
+|:----------|------:|------:|----:|------:|---------:|---------:|
+| -1        | 0.658 | 0.130 | 119 | 0.012 |    0.635 |    0.681 |
+| 0         | 0.765 | 0.151 | 119 | 0.014 |    0.738 |    0.792 |
+| 1         | 0.869 | 0.144 | 119 | 0.013 |    0.843 |    0.895 |
+
+Performance by stimulus strength by attention (expts 1-4)
+
+## Performance across successive stim strengths
 
     ## Warning: You have removed one or more levels from variable "stimStrength".
     ## Refactoring for ANOVA.
@@ -513,17 +549,13 @@ m_anova = ezANOVA(
   dv = .(pSeen),
   wid = .(subjectID),
   within = .(attention,stimStrength),
-  between = .(site,stimType,taskType),
+  between = .(site), # ,stimType,taskType
   detailed = TRUE,
   )
 ```
 
     ## Warning: You have removed one or more levels from variable "stimStrength".
     ## Refactoring for ANOVA.
-
-    ## Warning: "stimType" will be treated as numeric.
-
-    ## Warning: "taskType" will be treated as numeric.
 
     ## Warning: Data is unbalanced (unequal N per group). Make sure you specified a
     ## well-considered value for the type argument to ezANOVA().
@@ -540,100 +572,40 @@ Overall visibility by stimulus strength (expts 1-4) ANOVA
 <tr>
 <td>
 
-|     | Effect                                        | DFn |  DFd |     SSn |    SSd |        F |     p | p\<.05 |   ges |
-|:----|:----------------------------------------------|----:|-----:|--------:|-------:|---------:|------:|:-------|------:|
-| 1   | (Intercept)                                   |   1 |  111 | 757.182 | 32.091 | 2619.066 | 0.000 | \*     | 0.916 |
-| 2   | site                                          |   1 |  111 |   0.037 | 32.091 |    0.130 | 0.720 |        | 0.001 |
-| 3   | stimType                                      |   1 |  111 |  11.362 | 32.091 |   39.300 | 0.000 | \*     | 0.141 |
-| 4   | taskType                                      |   1 |  111 |  60.806 | 32.091 |  210.324 | 0.000 | \*     | 0.467 |
-| 9   | attention                                     |   2 |  222 |   3.775 |  5.089 |   82.333 | 0.000 | \*     | 0.052 |
-| 17  | stimStrength                                  |   6 |  666 | 130.266 | 26.546 |  544.707 | 0.000 | \*     | 0.653 |
-| 5   | site:stimType                                 |   1 |  111 |   0.006 | 32.091 |    0.019 | 0.890 |        | 0.000 |
-| 6   | site:taskType                                 |   1 |  111 |   0.156 | 32.091 |    0.539 | 0.464 |        | 0.002 |
-| 7   | stimType:taskType                             |   1 |  111 |   3.179 | 32.091 |   10.995 | 0.001 | \*     | 0.044 |
-| 10  | site:attention                                |   2 |  222 |   0.118 |  5.089 |    2.565 | 0.079 |        | 0.002 |
-| 11  | stimType:attention                            |   2 |  222 |   1.150 |  5.089 |   25.073 | 0.000 | \*     | 0.016 |
-| 12  | taskType:attention                            |   2 |  222 |   2.343 |  5.089 |   51.099 | 0.000 | \*     | 0.033 |
-| 18  | site:stimStrength                             |   6 |  666 |   0.137 | 26.546 |    0.572 | 0.753 |        | 0.002 |
-| 19  | stimType:stimStrength                         |   6 |  666 |   5.412 | 26.546 |   22.630 | 0.000 | \*     | 0.072 |
-| 20  | taskType:stimStrength                         |   6 |  666 |  17.603 | 26.546 |   73.608 | 0.000 | \*     | 0.202 |
-| 25  | attention:stimStrength                        |  12 | 1332 |   3.430 |  5.638 |   67.516 | 0.000 | \*     | 0.047 |
-| 8   | site:stimType:taskType                        |   1 |  111 |   0.004 | 32.091 |    0.012 | 0.913 |        | 0.000 |
-| 13  | site:stimType:attention                       |   2 |  222 |   0.041 |  5.089 |    0.905 | 0.406 |        | 0.001 |
-| 14  | site:taskType:attention                       |   2 |  222 |   0.332 |  5.089 |    7.233 | 0.001 | \*     | 0.005 |
-| 15  | stimType:taskType:attention                   |   2 |  222 |   0.091 |  5.089 |    1.984 | 0.140 |        | 0.001 |
-| 21  | site:stimType:stimStrength                    |   6 |  666 |   0.192 | 26.546 |    0.801 | 0.569 |        | 0.003 |
-| 22  | site:taskType:stimStrength                    |   6 |  666 |   0.415 | 26.546 |    1.737 | 0.110 |        | 0.006 |
-| 23  | stimType:taskType:stimStrength                |   6 |  666 |   1.728 | 26.546 |    7.226 | 0.000 | \*     | 0.024 |
-| 26  | site:attention:stimStrength                   |  12 | 1332 |   0.105 |  5.638 |    2.071 | 0.016 | \*     | 0.002 |
-| 27  | stimType:attention:stimStrength               |  12 | 1332 |   0.318 |  5.638 |    6.270 | 0.000 | \*     | 0.005 |
-| 28  | taskType:attention:stimStrength               |  12 | 1332 |   1.670 |  5.638 |   32.871 | 0.000 | \*     | 0.024 |
-| 16  | site:stimType:taskType:attention              |   2 |  222 |   0.071 |  5.089 |    1.556 | 0.213 |        | 0.001 |
-| 24  | site:stimType:taskType:stimStrength           |   6 |  666 |   0.475 | 26.546 |    1.986 | 0.065 |        | 0.007 |
-| 29  | site:stimType:attention:stimStrength          |  12 | 1332 |   0.032 |  5.638 |    0.632 | 0.816 |        | 0.000 |
-| 30  | site:taskType:attention:stimStrength          |  12 | 1332 |   0.054 |  5.638 |    1.059 | 0.391 |        | 0.001 |
-| 31  | stimType:taskType:attention:stimStrength      |  12 | 1332 |   0.138 |  5.638 |    2.720 | 0.001 | \*     | 0.002 |
-| 32  | site:stimType:taskType:attention:stimStrength |  12 | 1332 |   0.028 |  5.638 |    0.559 | 0.876 |        | 0.000 |
+|     | Effect                      | DFn |  DFd |     SSn |     SSd |       F |     p | p\<.05 |   ges |
+|:----|:----------------------------|----:|-----:|--------:|--------:|--------:|------:|:-------|------:|
+| 1   | (Intercept)                 |   1 |  117 | 757.182 | 108.018 | 820.147 | 0.000 | \*     | 0.810 |
+| 2   | site                        |   1 |  117 |   0.047 | 108.018 |   0.050 | 0.823 |        | 0.000 |
+| 3   | attention                   |   2 |  234 |   3.775 |   9.078 |  48.652 | 0.000 | \*     | 0.021 |
+| 5   | stimStrength                |   6 |  702 | 130.266 |  52.533 | 290.123 | 0.000 | \*     | 0.423 |
+| 4   | site:attention              |   2 |  234 |   0.131 |   9.078 |   1.689 | 0.187 |        | 0.001 |
+| 6   | site:stimStrength           |   6 |  702 |   0.147 |  52.533 |   0.327 | 0.923 |        | 0.001 |
+| 7   | attention:stimStrength      |  12 | 1404 |   3.430 |   7.875 |  50.956 | 0.000 | \*     | 0.019 |
+| 8   | site:attention:stimStrength |  12 | 1404 |   0.111 |   7.875 |   1.652 | 0.072 |        | 0.001 |
 
 </td>
 <td>
 
-|     | Effect                                        |     W |   p | p\<.05 |
-|:----|:----------------------------------------------|------:|----:|:-------|
-| 9   | attention                                     | 0.566 |   0 | \*     |
-| 10  | site:attention                                | 0.566 |   0 | \*     |
-| 11  | stimType:attention                            | 0.566 |   0 | \*     |
-| 12  | taskType:attention                            | 0.566 |   0 | \*     |
-| 13  | site:stimType:attention                       | 0.566 |   0 | \*     |
-| 14  | site:taskType:attention                       | 0.566 |   0 | \*     |
-| 15  | stimType:taskType:attention                   | 0.566 |   0 | \*     |
-| 16  | site:stimType:taskType:attention              | 0.566 |   0 | \*     |
-| 17  | stimStrength                                  | 0.005 |   0 | \*     |
-| 18  | site:stimStrength                             | 0.005 |   0 | \*     |
-| 19  | stimType:stimStrength                         | 0.005 |   0 | \*     |
-| 20  | taskType:stimStrength                         | 0.005 |   0 | \*     |
-| 21  | site:stimType:stimStrength                    | 0.005 |   0 | \*     |
-| 22  | site:taskType:stimStrength                    | 0.005 |   0 | \*     |
-| 23  | stimType:taskType:stimStrength                | 0.005 |   0 | \*     |
-| 24  | site:stimType:taskType:stimStrength           | 0.005 |   0 | \*     |
-| 25  | attention:stimStrength                        | 0.016 |   0 | \*     |
-| 26  | site:attention:stimStrength                   | 0.016 |   0 | \*     |
-| 27  | stimType:attention:stimStrength               | 0.016 |   0 | \*     |
-| 28  | taskType:attention:stimStrength               | 0.016 |   0 | \*     |
-| 29  | site:stimType:attention:stimStrength          | 0.016 |   0 | \*     |
-| 30  | site:taskType:attention:stimStrength          | 0.016 |   0 | \*     |
-| 31  | stimType:taskType:attention:stimStrength      | 0.016 |   0 | \*     |
-| 32  | site:stimType:taskType:attention:stimStrength | 0.016 |   0 | \*     |
+|     | Effect                      |     W |   p | p\<.05 |
+|:----|:----------------------------|------:|----:|:-------|
+| 3   | attention                   | 0.382 |   0 | \*     |
+| 4   | site:attention              | 0.382 |   0 | \*     |
+| 5   | stimStrength                | 0.001 |   0 | \*     |
+| 6   | site:stimStrength           | 0.001 |   0 | \*     |
+| 7   | attention:stimStrength      | 0.002 |   0 | \*     |
+| 8   | site:attention:stimStrength | 0.002 |   0 | \*     |
 
 </td>
 <td>
 
-|     | Effect                                        |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
-|:----|:----------------------------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
-| 9   | attention                                     | 0.697 |   0.000 | \*           | 0.704 |   0.000 | \*           |
-| 10  | site:attention                                | 0.697 |   0.099 |              | 0.704 |   0.098 |              |
-| 11  | stimType:attention                            | 0.697 |   0.000 | \*           | 0.704 |   0.000 | \*           |
-| 12  | taskType:attention                            | 0.697 |   0.000 | \*           | 0.704 |   0.000 | \*           |
-| 13  | site:stimType:attention                       | 0.697 |   0.375 |              | 0.704 |   0.375 |              |
-| 14  | site:taskType:attention                       | 0.697 |   0.003 | \*           | 0.704 |   0.003 | \*           |
-| 15  | stimType:taskType:attention                   | 0.697 |   0.155 |              | 0.704 |   0.154 |              |
-| 16  | site:stimType:taskType:attention              | 0.697 |   0.217 |              | 0.704 |   0.217 |              |
-| 17  | stimStrength                                  | 0.343 |   0.000 | \*           | 0.349 |   0.000 | \*           |
-| 18  | site:stimStrength                             | 0.343 |   0.570 |              | 0.349 |   0.573 |              |
-| 19  | stimType:stimStrength                         | 0.343 |   0.000 | \*           | 0.349 |   0.000 | \*           |
-| 20  | taskType:stimStrength                         | 0.343 |   0.000 | \*           | 0.349 |   0.000 | \*           |
-| 21  | site:stimType:stimStrength                    | 0.343 |   0.453 |              | 0.349 |   0.455 |              |
-| 22  | site:taskType:stimStrength                    | 0.343 |   0.177 |              | 0.349 |   0.177 |              |
-| 23  | stimType:taskType:stimStrength                | 0.343 |   0.001 | \*           | 0.349 |   0.001 | \*           |
-| 24  | site:stimType:taskType:stimStrength           | 0.343 |   0.138 |              | 0.349 |   0.137 |              |
-| 25  | attention:stimStrength                        | 0.532 |   0.000 | \*           | 0.568 |   0.000 | \*           |
-| 26  | site:attention:stimStrength                   | 0.532 |   0.050 |              | 0.568 |   0.046 | \*           |
-| 27  | stimType:attention:stimStrength               | 0.532 |   0.000 | \*           | 0.568 |   0.000 | \*           |
-| 28  | taskType:attention:stimStrength               | 0.532 |   0.000 | \*           | 0.568 |   0.000 | \*           |
-| 29  | site:stimType:attention:stimStrength          | 0.532 |   0.714 |              | 0.568 |   0.725 |              |
-| 30  | site:taskType:attention:stimStrength          | 0.532 |   0.387 |              | 0.568 |   0.388 |              |
-| 31  | stimType:taskType:attention:stimStrength      | 0.532 |   0.011 | \*           | 0.568 |   0.009 | \*           |
-| 32  | site:stimType:taskType:attention:stimStrength | 0.532 |   0.773 |              | 0.568 |   0.784 |              |
+|     | Effect                      |   GGe | p\[GG\] | p\[GG\]\<.05 |   HFe | p\[HF\] | p\[HF\]\<.05 |
+|:----|:----------------------------|------:|--------:|:-------------|------:|--------:|:-------------|
+| 3   | attention                   | 0.618 |   0.000 | \*           | 0.621 |   0.000 | \*           |
+| 4   | site:attention              | 0.618 |   0.196 |              | 0.621 |   0.196 |              |
+| 5   | stimStrength                | 0.377 |   0.000 | \*           | 0.385 |   0.000 | \*           |
+| 6   | site:stimStrength           | 0.377 |   0.748 |              | 0.385 |   0.752 |              |
+| 7   | attention:stimStrength      | 0.391 |   0.000 | \*           | 0.409 |   0.000 | \*           |
+| 8   | site:attention:stimStrength | 0.391 |   0.149 |              | 0.409 |   0.146 |              |
 
 </td>
 </tr>
@@ -644,19 +616,19 @@ Overall visibility by stimulus strength (expts 1-4) ANOVA
 ## Overall visibility by stimulus strength
 d <- dS %>% group_by(stimStrength) %>%
   summarise(mean=mean(pSeen), sd=sd(pSeen), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
-         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
-         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+         ci.lower = mean - 1.96 * se,
+         ci.upper = mean + 1.96 * se)
 knitr::kable(d, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) summary stats")
 ```
 
 | stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
 |:-------------|------:|------:|----:|------:|---------:|---------:|
-| 1            | 0.182 | 0.220 | 119 | 0.020 |    0.142 |    0.222 |
-| 2            | 0.353 | 0.296 | 119 | 0.027 |    0.300 |    0.407 |
+| 1            | 0.182 | 0.220 | 119 | 0.020 |    0.142 |    0.221 |
+| 2            | 0.353 | 0.296 | 119 | 0.027 |    0.300 |    0.406 |
 | 3            | 0.460 | 0.341 | 119 | 0.031 |    0.399 |    0.522 |
-| 4            | 0.526 | 0.338 | 119 | 0.031 |    0.464 |    0.587 |
+| 4            | 0.526 | 0.338 | 119 | 0.031 |    0.465 |    0.586 |
 | 5            | 0.656 | 0.290 | 119 | 0.027 |    0.603 |    0.708 |
-| 6            | 0.789 | 0.214 | 119 | 0.020 |    0.750 |    0.828 |
+| 6            | 0.789 | 0.214 | 119 | 0.020 |    0.751 |    0.828 |
 | 7            | 0.887 | 0.154 | 119 | 0.014 |    0.859 |    0.915 |
 
 Overall visibility by stimulus strength (expts 1-4) summary stats
@@ -1041,20 +1013,20 @@ Task-relevant feature visibility by stimulus strength (3 expts) ANOVA
 ## Task-relevant feature visibility by stimulus strength
 d <- dS %>% group_by(stimStrength) %>%
   summarise(mean=mean(pSeenFeature), sd=sd(pSeenFeature), n=n_distinct(subjectID)) %>% mutate(se = sd / sqrt(n),
-         ci.lower = mean - qt(1 - (0.05 / 2), n - 1) * se,
-         ci.upper = mean + qt(1 - (0.05 / 2), n - 1) * se)
+         ci.lower = mean - 1.96 * se,
+         ci.upper = mean + 1.96 * se)
 knitr::kable(d, digits=3, caption="Task-relevant feature visibility by stimulus strength (expts 1-4) summary stats")
 ```
 
 | stimStrength |  mean |    sd |   n |    se | ci.lower | ci.upper |
 |:-------------|------:|------:|----:|------:|---------:|---------:|
 | 1            | 0.161 | 0.226 |  90 | 0.024 |    0.114 |    0.208 |
-| 2            | 0.291 | 0.259 |  90 | 0.027 |    0.237 |    0.346 |
-| 3            | 0.427 | 0.271 |  90 | 0.029 |    0.370 |    0.484 |
-| 4            | 0.517 | 0.286 |  90 | 0.030 |    0.457 |    0.577 |
-| 5            | 0.607 | 0.275 |  90 | 0.029 |    0.550 |    0.665 |
-| 6            | 0.679 | 0.261 |  90 | 0.028 |    0.625 |    0.734 |
-| 7            | 0.809 | 0.221 |  90 | 0.023 |    0.762 |    0.855 |
+| 2            | 0.291 | 0.259 |  90 | 0.027 |    0.238 |    0.345 |
+| 3            | 0.427 | 0.271 |  90 | 0.029 |    0.371 |    0.483 |
+| 4            | 0.517 | 0.286 |  90 | 0.030 |    0.458 |    0.576 |
+| 5            | 0.607 | 0.275 |  90 | 0.029 |    0.550 |    0.664 |
+| 6            | 0.679 | 0.261 |  90 | 0.028 |    0.625 |    0.733 |
+| 7            | 0.809 | 0.221 |  90 | 0.023 |    0.763 |    0.854 |
 
 Task-relevant feature visibility by stimulus strength (expts 1-4)
 summary stats
