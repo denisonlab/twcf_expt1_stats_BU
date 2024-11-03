@@ -1,7 +1,7 @@
 ANOVA_stimStrength-att
 ================
 Karen Tian
-2024-09-17
+2024-11-03
 
 Performance  
 • [all
@@ -178,6 +178,69 @@ Performance by stimulus strength by site (expts 1-4)
 | 1         | 0.869 | 0.144 | 119 | 0.013 |    0.843 |    0.895 |
 
 Performance by stimulus strength by attention (expts 1-4)
+
+## Performance as a function of stimulus strength (all expts) - alternative approach to ezANOVA
+
+Remove contrast 0 for Expt 3 for balanced design
+
+    ## Warning in knit_print.huxtable(ht): Unrecognized output format "gfm+tex". Using `to_screen` to print huxtables.
+    ## Set options("huxtable.knitr_output_format") manually to "latex", "html", "rtf", "docx", "pptx", "md" or "screen".
+
+        ┌──────────────────────────────────────────────────────────────┐
+        │ Effect      DFn   DFd        F          p   p<.05        ges │
+        ├──────────────────────────────────────────────────────────────┤
+        │ site       1      117     5.42   0.022      *       0.019    │
+        │                                                              │
+        │ attentio   1.36   159   667      3.67e-67   *       0.463    │
+        │ n                                                            │
+        │ stimStre   2.56   300   564      9.52e-11   *       0.556    │
+        │ ngth                                    5                    │
+        │ site:att   1.36   159     2.12   0.14               0.003    │
+        │ ention                                                       │
+        │ site:sti   2.56   300     0.15   0.906              0.000332 │
+        │ mStrengt                                                     │
+        │ h                                                            │
+        │ attentio   8.48   992    48.7    1.3e-69    *       0.069    │
+        │ n:stimSt                                                     │
+        │ rength                                                       │
+        │ site:att   8.48   992     1.91   0.052              0.003    │
+        │ ention:s                                                     │
+        │ timStren                                                     │
+        │ gth                                                          │
+        └──────────────────────────────────────────────────────────────┘
+
+Column names: Effect, DFn, DFd, F, p, p\<.05, ges
+
+    ## 
+    ## Error: subjectID
+    ##            Df Sum Sq Mean Sq F value Pr(>F)
+    ## Residuals 118  9.194 0.07791               
+    ## 
+    ## Error: Within
+    ##                          Df Sum Sq Mean Sq F value Pr(>F)    
+    ## attention                 2 18.467   9.234  1710.4 <2e-16 ***
+    ## stimStrength              6 26.764   4.461   826.3 <2e-16 ***
+    ## attention:stimStrength   12  1.587   0.132    24.5 <2e-16 ***
+    ## Residuals              2360 12.740   0.005                   
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+    ## 
+    ##  Pairwise comparisons using t tests with pooled SD 
+    ## 
+    ## data:  dS$correctDis and dS$stimStrength 
+    ## 
+    ##   1       2       3       4       5       6     
+    ## 2 < 2e-16 -       -       -       -       -     
+    ## 3 < 2e-16 1.9e-13 -       -       -       -     
+    ## 4 < 2e-16 < 2e-16 7.5e-05 -       -       -     
+    ## 5 < 2e-16 < 2e-16 < 2e-16 6.0e-06 -       -     
+    ## 6 < 2e-16 < 2e-16 < 2e-16 1.1e-13 0.0038  -     
+    ## 7 < 2e-16 < 2e-16 < 2e-16 < 2e-16 1.0e-09 0.0010
+    ## 
+    ## P value adjustment method: holm
+
+## Posthoc performance across successive stim strengths
 
 ## Performance across successive stim strengths
 
@@ -1327,6 +1390,58 @@ Feature visibility between stimulus strengths 6 vs 7 (expts 1-3) ANOVA
 | 4   | site:attention              | 0.618 |   0.225 |              | 0.622 |   0.225 |              |
 | 7   | attention:stimStrength      | 0.936 |   0.000 | \*           | 0.956 |   0.000 | \*           |
 | 8   | site:attention:stimStrength | 0.936 |   0.726 |              | 0.956 |   0.731 |              |
+
+</td>
+</tr>
+</tbody>
+</table>
+
+## Feature vs stimulus visibility
+
+Remove contrast 0 for Expt 3 for balanced design
+
+    ##               Df Sum Sq Mean Sq F value Pr(>F)    
+    ## pSeen          1  40.44   40.44 1087.43 <2e-16 ***
+    ## subjectID     89  99.81    1.12   30.15 <2e-16 ***
+    ## Residuals   1799  66.91    0.04                   
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+    ## Warning in knit_print.huxtable(ht): Unrecognized output format "gfm+tex". Using `to_screen` to print huxtables.
+    ## Set options("huxtable.knitr_output_format") manually to "latex", "html", "rtf", "docx", "pptx", "md" or "screen".
+
+          ┌──────────────────────────────────────────────────────────┐
+          │ Effect   DFn        DFd     F          p   p<.05     ges │
+          ├──────────────────────────────────────────────────────────┤
+          │ pSeen      1   1.89e+03   458   3.75e-91   *       0.195 │
+          └──────────────────────────────────────────────────────────┘
+
+Column names: Effect, DFn, DFd, F, p, p\<.05, ges
+
+    ## Warning: You have removed one or more Ss from the analysis. Refactoring
+    ## "subjectID" for ANOVA.
+
+    ## Warning: Collapsing data to cell means. *IF* the requested effects are a subset
+    ## of the full design, you must use the "within_full" argument, else results may
+    ## be inaccurate.
+
+    ## Coefficient covariances computed by hccm()
+
+<table class="kable_wrapper">
+<tbody>
+<tr>
+<td>
+
+| Effect | DFn | DFd | SSn |   SSd |     F |     p | p\<.05 | ges |
+|:-------|----:|----:|----:|------:|------:|------:|:-------|----:|
+| site   |   1 |  88 |   0 | 2.854 | 0.009 | 0.923 |        |   0 |
+
+</td>
+<td>
+
+| DFn | DFd | SSn |   SSd |     F |     p | p\<.05 |
+|----:|----:|----:|------:|------:|------:|:-------|
+|   1 |  88 |   0 | 1.184 | 0.014 | 0.906 |        |
 
 </td>
 </tr>

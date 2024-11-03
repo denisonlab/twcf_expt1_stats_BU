@@ -20,6 +20,7 @@ library(report)
 library(rempsyc) # for t-tests in nice tables
 library(broom)
 library(huxtable) # another table making package
+library(rstatix)
 knitr::opts_chunk$set(echo = TRUE)
 
 #### set path #### 
@@ -92,7 +93,7 @@ knitr::kable(d, digits=3, caption="RT by stimulus strength by attention (expts 1
  
 ## Performance as a function of stimulus strength (all expts)
 Remove contrast 0 for Expt 3 for balanced design
-```{r anova-expt1-4, echo = FALSE}
+```{r anova-expt1-4o, echo = FALSE}
 dS <- data %>% filter(stimStrength!=0) 
 m_anova = ezANOVA(
   data = dS,
@@ -124,6 +125,32 @@ d <- dS %>% group_by(attention) %>%
          ci.lower = mean - 1.96 * se,
          ci.upper = mean + 1.96 * se)
 knitr::kable(d, digits=3, caption="Performance by stimulus strength by attention (expts 1-4)")
+```
+
+## Performance as a function of stimulus strength (all expts) - alternative approach to ezANOVA
+Remove contrast 0 for Expt 3 for balanced design
+```{r anova-expt1-4o2, echo = FALSE}
+dS <- data %>% filter(stimStrength!=0) 
+# Two-way mixed ANOVA test
+res.aov <- anova_test(
+  data = dS, dv = correctDis, wid = subjectID,
+  between = site, within = c(attention,stimStrength)
+  )
+get_anova_table(res.aov)
+
+aov.model <- aov(correctDis ~ attention*stimStrength + Error(subjectID), data=dS)
+summary(aov.model)
+# posthoc = TukeyHSD(aov.model, 'stimStrength', conf.level=0.95)
+
+# posthocPairwiseT(x = res.aov$ANOVA, p.adjust.method = "none")
+
+pairwise.t.test(dS$correctDis, dS$stimStrength, p.adj = "holm")
+```
+
+## Posthoc performance across successive stim strengths
+```{r anova-expt1-4-successive-posthoc, echo = FALSE}
+# tukey.test <- TukeyHSD(m_anova$ANOVA)
+# tukey.test
 ```
 
 ## Performance across successive stim strengths
@@ -196,7 +223,7 @@ knitr::kable(m_anova, digits=3, caption="Performance between stimulus strengths 
 ```
 
 ## Performance as a function of stimulus strength (expt 1)
-```{r anova-expt1, echo = TRUE}
+```{r anova-expt1o3, echo = TRUE}
 dS <- data %>% filter(expt==1)
 m_anova = ezANOVA(
   data = dS,
@@ -397,4 +424,44 @@ m_anova = ezANOVA(
   detailed = TRUE,
   )
 knitr::kable(m_anova, digits=3, caption="Feature visibility between stimulus strengths 6 vs 7 (expts 1-3) ANOVA")
+```
+
+## Feature vs stimulus visibility
+Remove contrast 0 for Expt 3 for balanced design
+```{r anova-feature_vs_stimulus, echo = FALSE}
+dS <- data %>% filter(stimStrength!=0) %>% filter(expt!=2)
+# Two-way mixed ANOVA test
+# res.aov <- anova_test(
+#   data = dS, dv = pSeenFeature, wid = subjectID,
+#   between = site, within = c(attention,pSeen)
+#   )
+# get_anova_table(res.aov)
+
+# paired samples t-test 
+ttest <- t.test(dS$pSeen, dS$pSeenFeature, paired = TRUE, alternative = "two.sided")
+
+# aov.model <- aov(pSeenFeature ~ pSeen + Error(subjectID+site), data=dS)
+aov.model <- aov(pSeenFeature ~ pSeen + subjectID + site, data=dS)
+summary(aov.model)
+# Error(subjectID)
+
+res.aov <- anova_test(
+  data=dS, pSeenFeature ~ pSeen
+  )
+get_anova_table(res.aov)
+# wid=subjectID, between=site 
+
+m_anova = ezANOVA(
+  data = dS,
+  dv = .(pSeenFeature),
+  wid = .(subjectID),
+  between = .(site),
+  observed = .(pSeen),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3)
+
+# posthoc = TukeyHSD(aov.model, 'stimStrength', conf.level=0.95)
+
+# posthocPairwiseT(x = res.aov$ANOVA, p.adjust.method = "none")
 ```
