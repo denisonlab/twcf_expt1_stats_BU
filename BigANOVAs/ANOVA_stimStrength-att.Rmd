@@ -41,6 +41,9 @@ data$site <- as.factor(data$site)
 data$subjectID <- as.factor(data$subjectID)
 data$attention <- as.factor(data$attention)
 data$stimStrength <- as.factor(data$stimStrength)
+data$expt <- as.factor(data$expt)
+data$stimType <- as.factor(data$stimType)
+data$taskType <- as.factor(data$taskType)
 
 ### Plotting setup #### 
 colors = c("#F8A299","#CCCCCC","#98E6A1")
@@ -64,7 +67,7 @@ m_anova = ezANOVA(
   dv = .(rt),
   wid = .(subjectID),
   within = .(stimStrength,attention), # 
-  between = .(site), # stimType taskType
+  between = .(site,stimType,taskType), # stimType taskType
   detailed = TRUE,
   )
 knitr::kable(m_anova, digits=3, caption="Reaction time (s) by stimulus strength (expts 1-4) ANOVA")
@@ -100,7 +103,7 @@ m_anova = ezANOVA(
   dv = .(correctDis),
   wid = .(subjectID),
   within = .(stimStrength,attention), # 
-  between = .(site), # stimType taskType
+  between = .(site,stimType,taskType), # stimType taskType
   detailed = TRUE,
   )
 knitr::kable(m_anova, digits=3, caption="Performance by stimulus strength (expts 1-4) ANOVA")
@@ -134,7 +137,7 @@ dS <- data %>% filter(stimStrength!=0)
 # Two-way mixed ANOVA test
 res.aov <- anova_test(
   data = dS, dv = correctDis, wid = subjectID,
-  between = site, within = c(attention,stimStrength)
+  between = c(site,taskType,stimType), within = c(attention,stimStrength)
   )
 get_anova_table(res.aov)
 
@@ -144,7 +147,22 @@ summary(aov.model)
 
 # posthocPairwiseT(x = res.aov$ANOVA, p.adjust.method = "none")
 
+# both stim types 
 pairwise.t.test(dS$correctDis, dS$stimStrength, p.adj = "holm")
+pairwise.t.test(dS$pSeen, dS$stimStrength, p.adj = "holm")
+pairwise.t.test(dS$pSeenFeature, dS$stimStrength, p.adj = "holm")
+
+# gabors only
+dSG <- dS %>% filter(stimType==0) 
+pairwise.t.test(dSG$correctDis, dSG$stimStrength, p.adj = "holm")
+pairwise.t.test(dSG$pSeen, dSG$stimStrength, p.adj = "holm")
+pairwise.t.test(dSG$pSeenFeature, dSG$stimStrength, p.adj = "holm")
+
+# fg only
+dSG <- dS %>% filter(stimType==1) 
+pairwise.t.test(dSG$correctDis, dSG$stimStrength, p.adj = "holm")
+pairwise.t.test(dSG$pSeen, dSG$stimStrength, p.adj = "holm")
+pairwise.t.test(dSG$pSeenFeature, dSG$stimStrength, p.adj = "holm")
 ```
 
 ## Posthoc performance across successive stim strengths
@@ -161,7 +179,7 @@ m_anova = ezANOVA(
   dv = .(correctDis),
   wid = .(subjectID),
   within = .(attention,stimStrength),
-  between = .(site),
+  between = .(site,stimType,taskType),
   detailed = TRUE,
   )
 knitr::kable(m_anova, digits=3, caption="Performance between stimulus strengths 1 vs 2 (expts 1-4) ANOVA")
@@ -253,7 +271,7 @@ m_anova = ezANOVA(
   dv = .(pSeen),
   wid = .(subjectID),
   within = .(attention,stimStrength),
-  between = .(site), # ,stimType,taskType
+  between = .(site,stimType,taskType), # ,stimType,taskType
   detailed = TRUE,
   )
 knitr::kable(m_anova, digits=3, caption="Overall visibility by stimulus strength (expts 1-4) ANOVA")
@@ -436,6 +454,48 @@ dS <- data %>% filter(stimStrength!=0) %>% filter(expt!=2)
 #   between = site, within = c(attention,pSeen)
 #   )
 # get_anova_table(res.aov)
+
+# ANOVA with experiment as a factor 
+# reshape data
+dST <- dS %>% filter(expt=="1" | expt=="3") %>% pivot_longer(c("pSeen","pSeenFeature"), names_to = "visMeasure", values_to = "pVis")
+
+m_anova = ezANOVA(
+  data = dST,
+  dv = .(pVis),
+  wid = .(subjectID),
+  within = .(stimStrength,visMeasure),
+  between = .(site,expt),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Feature vs stimulus ANOVA; expt as factor")
+
+# Detection gratings (no site bc of subjectID?)
+dST <- dS %>% filter(expt=="3") %>% pivot_longer(c("pSeen","pSeenFeature"), names_to = "visMeasure", values_to = "pVis")
+m_anova = ezANOVA(
+  data = dST,
+  dv = .(pVis),
+  wid = .(subjectID),
+  within = .(stimStrength,visMeasure),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Feature vs stimulus ANOVA; Detection gratings")
+# paired samples t-test 
+ttest <- t.test(pVis~visMeasure, data=subset(dST, visMeasure %in% c("pSeen", "pSeenFeature")), paired=TRUE, alternative = "two.sided")
+
+# Detection FG 
+dST <- dS %>% filter(expt=="1") %>% pivot_longer(c("pSeen","pSeenFeature"), names_to = "visMeasure", values_to = "pVis")
+m_anova = ezANOVA(
+  data = dST,
+  dv = .(pVis),
+  wid = .(subjectID),
+  within = .(stimStrength,visMeasure),
+  between = .(site),
+  detailed = TRUE,
+  )
+knitr::kable(m_anova, digits=3, caption="Feature vs stimulus ANOVA; Detection FG")
+# paired samples t-test 
+ttest <- t.test(pVis~visMeasure, data=subset(dST, visMeasure %in% c("pSeen", "pSeenFeature")), paired=TRUE, alternative = "two.sided")
 
 # paired samples t-test 
 ttest <- t.test(dS$pSeen, dS$pSeenFeature, paired = TRUE, alternative = "two.sided")

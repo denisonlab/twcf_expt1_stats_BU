@@ -58,6 +58,31 @@ m_anova = ezANOVA(
   detailed = TRUE,
   )
 knitr::kable(m_anova)
+
+d %>%
+  summarise(mean=mean(threshold), sd=sd(threshold), n=n_distinct(subject)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - 1.96 * se,
+         ci.upper = mean + 1.96 * se)
+knitr::kable(d, digits=3, caption="Threshold cue tex det")
+```
+
+## Threshold ANOVA: Experiment 2 (cue_tex_dis)
+```{r cuetexdet, echo = TRUE}
+# d <- data %>% filter(expt==2)
+# m_anova = ezANOVA(
+#   data = d,
+#   dv = .(threshold),
+#   wid = .(subject),
+#   between = .(site),
+#   detailed = TRUE,
+#   )
+# knitr::kable(m_anova)
+
+d <- data %>% filter(expt==2) %>% 
+  summarise(mean=mean(threshold), sd=sd(threshold), n=n_distinct(subject)) %>% mutate(se = sd / sqrt(n),
+         ci.lower = mean - 1.96 * se,
+         ci.upper = mean + 1.96 * se)
+knitr::kable(d, digits=3, caption="Threshold cue tex dis")
 ```
 
 ## Threshold ANOVA: Experiment 3 (cue_gab_det)

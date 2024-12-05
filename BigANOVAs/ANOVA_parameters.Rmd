@@ -1,0 +1,75 @@
+---
+title: "ANOVA_parameters"
+author: "Karen Tian"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+AUCs from KT pipeline
+```{r setup, echo = FALSE, include=FALSE}
+# include prevents code and results from being displayed
+# echo prevents code 
+suppressPackageStartupMessages(library(tidyverse))
+library(ez)
+library(foreach)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(lsr)
+library(report)
+library(rempsyc) # for t-tests in nice tables
+library(broom)
+library(huxtable) # another table making package
+knitr::opts_chunk$set(echo = TRUE)
+
+#### set path #### 
+# wd  <- '/Users/kantian/Dropbox/github/TWCF_FOHO/twcf_expt1_stats_BU/'
+# setwd(wd)
+
+#### anova setup #### 
+options(contrasts=c("contr.sum","contr.poly"))
+
+#### load AUC data #### 
+analysisName = "Expts1-4_params";
+dataName <- sprintf("%s.csv",analysisName)
+data <- read_csv(dataName)
+
+#### Change to categorical vars ####
+data$expt <- as.factor(data$expt)
+data$site <- as.factor(data$site)
+data$subjectID <- as.factor(data$subjectID)
+data$attention <- as.factor(data$attention)
+data$stimulus <- as.factor(data$stimulus)
+data$task <- as.factor(data$task)
+
+### Plotting setup #### 
+colors = c("#F8A299","#CCCCCC","#98E6A1")
+attComparison <- list( c("1","3"), c("1","2"), c("2","3") )
+
+significance <- list(cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf),
+symbols = c("****", "***", "**", "*", "ns"))
+```
+
+## AUC violin plot
+```{r AUC, echo = TRUE}
+dP <- data %>% filter(expt==3)
+ggplot(dP, aes(x=attention, y=AUC)) + geom_violin() 
+# fill=name allow to automatically dedicate a color for each group
+
+ggplot(dP, aes(x=attention, y=betaA)) + geom_boxplot() + ylim(0,100)
+
+```
+
+## AUC
+```{r anova, echo = TRUE}
+# m_anova = ezANOVA(
+#   data = data,
+#   dv = .(lambdaA),
+#   wid = .(subjectID), 
+#   within = .(attention),
+#   between = .(site,stimulus,task),
+#   detailed = TRUE,
+#   )
+# knitr::kable(m_anova)
+``` 
